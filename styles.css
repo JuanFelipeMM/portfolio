@@ -2,26 +2,15 @@ html {
     scroll-behavior: smooth;
 }
 
-
-/*#black {
-    z-index: -10;
-    opacity: 0;
-    position: fixed;
+#black {
+    z-index: -15;
+    background-color: #000000;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: black;
-}*/
-
-
-/*main {
-    background: linear-gradient(1deg, #c62bba, #913ae4, #5442e4);
-    background-size: 600% 600%;
-    -webkit-animation: gradientAnimation 15s ease infinite;
-    -moz-animation: gradientAnimation 15s ease infinite;
-    -o-animation: gradientAnimation 15s ease infinite;
-    animation: gradientAnimation 15s ease infinite;
-    overflow: hidden;
-}*/
+    position: fixed;
+}
 
 #start-screen #grad {
     z-index: -10;
@@ -31,12 +20,18 @@ html {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: linear-gradient(1deg, #c62bba, #913ae4, #5442e4);
+    background: linear-gradient(91deg, #842ac1, #000000, #b417ae);
+    background-size: 600% 600%;
+    -webkit-animation: gradientAnimation 23s ease infinite;
+    -moz-animation: gradientAnimation 23s ease infinite;
+    -o-animation: gradientAnimation 23s ease infinite;
+    animation: gradientAnimation 23s ease infinite;
+    /*background: linear-gradient(1deg, #c62bba, #913ae4, #5442e4);
     background-size: 600% 600%;
     -webkit-animation: gradientAnimation 10s ease infinite;
     -moz-animation: gradientAnimation 10s ease infinite;
     -o-animation: gradientAnimation 10s ease infinite;
-    animation: gradientAnimation 10s ease infinite;
+    animation: gradientAnimation 10s ease infinite;*/
     overflow: hidden;
 }
 
@@ -48,60 +43,77 @@ html {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: linear-gradient(1deg, #25b758, #53a4db, #321cdb);
+    background: linear-gradient(91deg, #3a6cea, #000000, #29a4b2);
     background-size: 600% 600%;
-    -webkit-animation: gradientAnimation 10s ease infinite;
-    -moz-animation: gradientAnimation 10s ease infinite;
-    -o-animation: gradientAnimation 10s ease infinite;
-    animation: gradientAnimation 10s ease infinite;
+    -webkit-animation: gradientAnimation 23s ease infinite;
+    -moz-animation: gradientAnimation 23s ease infinite;
+    -o-animation: gradientAnimation 23s ease infinite;
+    animation: gradientAnimation 23s ease infinite;
+    overflow: hidden;
+}
+
+#knowledge #grad {
+    z-index: -10;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(91deg, #4a7b62, #000000, #b96009);
+    background-size: 600% 600%;
+    -webkit-animation: gradientAnimation 23s ease infinite;
+    -moz-animation: gradientAnimation 23s ease infinite;
+    -o-animation: gradientAnimation 23s ease infinite;
+    animation: gradientAnimation 23s ease infinite;
     overflow: hidden;
 }
 
 @-webkit-keyframes gradientAnimation {
     0% {
-        background-position: 50% 0%
+        background-position: 0% 50%
     }
     50% {
-        background-position: 50% 100%
+        background-position: 100% 51%
     }
     100% {
-        background-position: 50% 0%
+        background-position: 0% 50%
     }
 }
 
 @-moz-keyframes gradientAnimation {
     0% {
-        background-position: 50% 0%
+        background-position: 0% 50%
     }
     50% {
-        background-position: 50% 100%
+        background-position: 100% 51%
     }
     100% {
-        background-position: 50% 0%
+        background-position: 0% 50%
     }
 }
 
 @-o-keyframes gradientAnimation {
     0% {
-        background-position: 50% 0%
+        background-position: 0% 50%
     }
     50% {
-        background-position: 50% 100%
+        background-position: 100% 51%
     }
     100% {
-        background-position: 50% 0%
+        background-position: 0% 50%
     }
 }
 
 @keyframes gradientAnimation {
     0% {
-        background-position: 50% 0%
+        background-position: 0% 50%
     }
     50% {
-        background-position: 50% 100%
+        background-position: 100% 51%
     }
     100% {
-        background-position: 50% 0%
+        background-position: 0% 50%
     }
 }
 
@@ -142,7 +154,7 @@ body {
 
 .menu a {
     text-decoration: none;
-    color: black
+    color: white
 }
 
 #go-top {
@@ -155,7 +167,7 @@ body {
 #go-top a {
     z-index: 3;
     text-decoration: none;
-    color: black
+    color: white
 }
 
 #start-screen {
@@ -170,6 +182,10 @@ body {
     bottom: -2%;
     right: 3%;
     text-align: right;
+}
+
+.title {
+    color: white;
 }
 
 #about-me {
