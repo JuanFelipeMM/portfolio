@@ -1,0 +1,197 @@
+html {
+    scroll-behavior: smooth;
+}
+
+
+/*#black {
+    z-index: -10;
+    opacity: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+}*/
+
+
+/*main {
+    background: linear-gradient(1deg, #c62bba, #913ae4, #5442e4);
+    background-size: 600% 600%;
+    -webkit-animation: gradientAnimation 15s ease infinite;
+    -moz-animation: gradientAnimation 15s ease infinite;
+    -o-animation: gradientAnimation 15s ease infinite;
+    animation: gradientAnimation 15s ease infinite;
+    overflow: hidden;
+}*/
+
+#start-screen #grad {
+    z-index: -10;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(1deg, #c62bba, #913ae4, #5442e4);
+    background-size: 600% 600%;
+    -webkit-animation: gradientAnimation 10s ease infinite;
+    -moz-animation: gradientAnimation 10s ease infinite;
+    -o-animation: gradientAnimation 10s ease infinite;
+    animation: gradientAnimation 10s ease infinite;
+    overflow: hidden;
+}
+
+#about-me #grad {
+    z-index: -10;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(1deg, #25b758, #53a4db, #321cdb);
+    background-size: 600% 600%;
+    -webkit-animation: gradientAnimation 10s ease infinite;
+    -moz-animation: gradientAnimation 10s ease infinite;
+    -o-animation: gradientAnimation 10s ease infinite;
+    animation: gradientAnimation 10s ease infinite;
+    overflow: hidden;
+}
+
+@-webkit-keyframes gradientAnimation {
+    0% {
+        background-position: 50% 0%
+    }
+    50% {
+        background-position: 50% 100%
+    }
+    100% {
+        background-position: 50% 0%
+    }
+}
+
+@-moz-keyframes gradientAnimation {
+    0% {
+        background-position: 50% 0%
+    }
+    50% {
+        background-position: 50% 100%
+    }
+    100% {
+        background-position: 50% 0%
+    }
+}
+
+@-o-keyframes gradientAnimation {
+    0% {
+        background-position: 50% 0%
+    }
+    50% {
+        background-position: 50% 100%
+    }
+    100% {
+        background-position: 50% 0%
+    }
+}
+
+@keyframes gradientAnimation {
+    0% {
+        background-position: 50% 0%
+    }
+    50% {
+        background-position: 50% 100%
+    }
+    100% {
+        background-position: 50% 0%
+    }
+}
+
+@keyframes fadeInOut {
+    0% {
+        z-index: 10;
+        opacity: 0;
+    }
+    50% {
+        z-index: 10;
+        opacity: 1;
+    }
+    100% {
+        z-index: -10;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeInOutText {
+    0% {
+        z-index: 10;
+        opacity: 0;
+    }
+    50% {
+        z-index: 10;
+        opacity: 1;
+    }
+    100% {
+        z-index: -10;
+        opacity: 0;
+    }
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black
+}
+
+#go-top {
+    z-index: 3;
+    position: fixed;
+    bottom: 10vh;
+    right: 10vw;
+}
+
+#go-top a {
+    z-index: 3;
+    text-decoration: none;
+    color: black
+}
+
+#start-screen {
+    width: 100%;
+    height: 100vh;
+    display: flexbox;
+}
+
+.menu {
+    font-size: large;
+    position: relative;
+    bottom: -2%;
+    right: 3%;
+    text-align: right;
+}
+
+#about-me {
+    font-size: x-large;
+    width: 100%;
+    height: 100vh;
+}
+
+#knowledge {
+    font-size: x-large;
+    width: 100%;
+    height: 100vh;
+}
+
+#projects {
+    font-size: x-large;
+    width: 100%;
+    height: 100vh;
+}
+
+#contact {
+    font-size: x-large;
+    width: 100%;
+    height: 100vh;
+}
