@@ -37,7 +37,7 @@ window.addEventListener("scroll", function () {
 }
 );
 
-function changeColors(viewName/*current, last*/) {
+function changeColors(viewName) {
 
     for (let i = 0; i < views.length; i++) {
         if (views[i]?.id === viewName) {
@@ -62,5 +62,5 @@ function changeColors(viewName/*current, last*/) {
             grad.style.transition = "opacity 1s linear";
         }
     }
-
+    }
 }
