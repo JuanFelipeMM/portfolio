@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
 html {
     scroll-behavior: smooth;
 }
@@ -20,7 +21,7 @@ html {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: linear-gradient(91deg, #842ac1, #000000, #b417ae);
+    background: linear-gradient(91deg, #842ac1, #2d042f, #b417ae);
     background-size: 600% 600%;
     -webkit-animation: gradientAnimation 23s ease infinite;
     -moz-animation: gradientAnimation 23s ease infinite;
@@ -43,7 +44,7 @@ html {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: linear-gradient(91deg, #3a6cea, #000000, #29a4b2);
+    background: linear-gradient(91deg, #3a6cea, #1a1459, #197a84);
     background-size: 600% 600%;
     -webkit-animation: gradientAnimation 23s ease infinite;
     -moz-animation: gradientAnimation 23s ease infinite;
@@ -67,6 +68,84 @@ html {
     -o-animation: gradientAnimation 23s ease infinite;
     animation: gradientAnimation 23s ease infinite;
     overflow: hidden;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.menu a {
+    font-size: 100%;
+    text-decoration: none;
+    color: white;
+    transition: font-size 0.15s linear;
+}
+
+.menu a:hover {
+    font-size: 150%;
+}
+
+#go-top {
+    z-index: 3;
+    position: fixed;
+    bottom: 10vh;
+    right: 10vw;
+}
+
+#go-top a {
+    font-family: 'Roboto', sans-serif;
+    z-index: 3;
+    text-decoration: none;
+    color: white
+}
+
+#start-screen {
+    width: 100%;
+    height: 100vh;
+    display: flexbox;
+}
+
+.menu {
+    font-family: 'Roboto', sans-serif;
+    font-size: large;
+    position: relative;
+    bottom: -2%;
+    right: 3%;
+    text-align: right;
+}
+
+.title {
+    font-size: 200%;
+    white-space: nowrap;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    text-align: center;
+    padding-top: 10%;
+}
+
+#about-me {
+    font-size: x-large;
+    width: 100%;
+    height: 100vh;
+}
+
+#knowledge {
+    font-size: x-large;
+    width: 100%;
+    height: 100vh;
+}
+
+#projects {
+    font-size: x-large;
+    width: 100%;
+    height: 100vh;
+}
+
+#contact {
+    font-size: x-large;
+    width: 100%;
+    height: 100vh;
 }
 
 @-webkit-keyframes gradientAnimation {
@@ -145,69 +224,4 @@ html {
         z-index: -10;
         opacity: 0;
     }
-}
-
-body {
-    margin: 0px;
-    padding: 0px;
-}
-
-.menu a {
-    text-decoration: none;
-    color: white
-}
-
-#go-top {
-    z-index: 3;
-    position: fixed;
-    bottom: 10vh;
-    right: 10vw;
-}
-
-#go-top a {
-    z-index: 3;
-    text-decoration: none;
-    color: white
-}
-
-#start-screen {
-    width: 100%;
-    height: 100vh;
-    display: flexbox;
-}
-
-.menu {
-    font-size: large;
-    position: relative;
-    bottom: -2%;
-    right: 3%;
-    text-align: right;
-}
-
-.title {
-    color: white;
-}
-
-#about-me {
-    font-size: x-large;
-    width: 100%;
-    height: 100vh;
-}
-
-#knowledge {
-    font-size: x-large;
-    width: 100%;
-    height: 100vh;
-}
-
-#projects {
-    font-size: x-large;
-    width: 100%;
-    height: 100vh;
-}
-
-#contact {
-    font-size: x-large;
-    width: 100%;
-    height: 100vh;
 }
