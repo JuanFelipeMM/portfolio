@@ -1,35 +1,58 @@
-var views;
+var telas;
+window.onload = ( ()=>{
+    var containers = document.querySelectorAll('#container').forEach(container =>{
+        container.style.width="0";
+        container.style.opacity="1";
+    });
+})
 window.addEventListener("scroll", function () {
 
+
+    let teini = document.getElementById('tela-inicial');
+    let sm = document.getElementById('sobre-mim');
+    let con = document.getElementById('conhecimentos');
+    let proj = document.getElementById('projetos');
+    let cont = document.getElementById('contato');
+
+    var cliHei =document.documentElement.clientHeight;
+    var offSet= cliHei*0.30;
     var scr = document.documentElement?.scrollTop;
-    const strc = document.getElementById('start-screen');
-    const ab = document.getElementById('about-me');
-    const kno = document.getElementById('knowledge');
+    telas = [teini, sm, con, proj, cont];
 
-    views = [strc, ab, kno];
-
-
+    console.log("CH",document.documentElement.clientHeight);
     console.log("scr:", scr);
-    if (strc?.clientHeight !== undefined) {
-        if (scr >= (strc?.getClientRects().item(0)?.top + scr) && scr <= (strc?.getClientRects().item(0)?.bottom + scr)) {
-            changeColors(strc?.id);
+    if (teini?.clientHeight !== undefined) {
+        if (scr >= (teini?.getClientRects().item(0)?.top + scr) && scr <= (teini?.getClientRects().item(0)?.bottom + scr)) {
+            changeColors(teini?.id);
 
         }
     }
 
-    console.log("ab Height:", ab?.getClientRects().item(0)?.top + scr);
-    console.log("ab Bottom:", ab?.getClientRects().item(0)?.bottom + scr);
-    if (ab?.clientHeight !== undefined) {
-        if (scr >= (ab?.getClientRects().item(0)?.top + scr) && scr <= (ab?.getClientRects().item(0)?.bottom + scr)) {
-            changeColors(ab?.id);
+    if (sm?.clientHeight !== undefined) {
+        if (scr >= (sm?.getClientRects().item(0)?.top + scr -offSet) && scr <= (sm?.getClientRects().item(0)?.bottom + scr)) {
+            changeColors(sm?.id);
 
         }
     }
-    console.log("Kno Height:", kno?.getClientRects().item(0)?.top);
-    console.log("Kno Bottom:", kno?.getClientRects().item(0)?.bottom);
-    if (kno?.clientHeight !== undefined) {
-        if (scr >= (kno?.getClientRects().item(0)?.top + scr) && scr <= (kno?.getClientRects().item(0)?.bottom + scr)/*scr >= kno?.getClientRects().item(0)?.top && kno?.getClientRects().item(0)?.bottom <= 0 */) {
-            changeColors(kno?.id);
+    if (con?.clientHeight !== undefined) {
+        if (scr >= (con?.getClientRects().item(0)?.top + scr -offSet) && scr <= (con?.getClientRects().item(0)?.bottom + scr)) {
+            changeColors(con?.id);
+
+        }
+    }
+
+    if (proj?.clientHeight !== undefined) {
+        if (scr >= (proj?.getClientRects().item(0)?.top + scr -offSet) && scr <= (proj?.getClientRects().item(0)?.bottom + scr)) {
+            changeColors(proj?.id);
+
+        }
+    }
+
+    console.log("cont Height:", cont?.getClientRects().item(0)?.top);
+    console.log("cont Bottom:", cont?.getClientRects().item(0)?.bottom);
+    if (cont?.clientHeight !== undefined) {
+        if (scr >= (cont?.getClientRects().item(0)?.top + scr -offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr)) {
+            changeColors(cont?.id);
 
         }
     }
@@ -37,15 +60,15 @@ window.addEventListener("scroll", function () {
 }
 );
 
-function changeColors(viewName) {
+function changeColors(nomeTela) {
 
-    for (let i = 0; i < views.length; i++) {
-        if (views[i]?.id === viewName) {
-            var grad = views[i]?.children[0];
-            if (views[i]?.id !== 'start-screen') {
-                var title = views[i]?.children[1]
-                title.style.width = "100%";
-                title.style.transition = "width 1s ease";
+    for (let i = 0; i < telas.length; i++) {
+        if (telas[i]?.id === nomeTela) {
+            var grad = telas[i]?.children[0];
+            if (telas[i]?.id !== 'tela-inicial') {
+                var titulo = telas[i]?.children[1];
+                titulo.style.width = "50%";
+                titulo.style.transition = "width 1s ease";
             }
 
             grad.style.opacity = "1";
@@ -53,14 +76,14 @@ function changeColors(viewName) {
 
         }
         else {
-            var grad = views[i]?.children[0];
-            if (views[i]?.id !== 'start-screen') {
-                var title = views[i]?.children[1]
-                title.style.width = "0";
-                title.style.transition = "width 1s ease";
+            var grad = telas[i]?.children[0];
+            if (telas[i]?.id !== 'tela-inicial') {
+                var titulo = telas[i]?.children[1];
+                titulo.style.width = "0";
+                titulo.style.transition = "width 1s ease";
+            }
             grad.style.opacity = "0";
             grad.style.transition = "opacity 1s linear";
         }
-    }
     }
 }
