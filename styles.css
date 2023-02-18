@@ -181,6 +181,7 @@ body {
     color: black;
     text-align: center;
     padding: 5px;
+    will-change: width;
 }
 
 .linha {
