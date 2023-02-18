@@ -28,6 +28,7 @@ html {
     -o-animation: animacao-gradiente 23s ease infinite;
     animation: animacao-gradiente 23s ease infinite;
     overflow: hidden;
+    will-change: opacity;
 }
 
 #sobre-mim #grad {
@@ -45,6 +46,7 @@ html {
     -o-animation: animacao-gradiente 23s ease infinite;
     animation: animacao-gradiente 23s ease infinite;
     overflow: hidden;
+    will-change: opacity;
 }
 
 #conhecimentos #grad {
@@ -62,6 +64,7 @@ html {
     -o-animation: animacao-gradiente 23s ease infinite;
     animation: animacao-gradiente 23s ease infinite;
     overflow: hidden;
+    will-change: opacity;
 }
 
 #projetos #grad {
@@ -79,6 +82,7 @@ html {
     -o-animation: animacao-gradiente 23s ease infinite;
     animation: animacao-gradiente 23s ease infinite;
     overflow: hidden;
+    will-change: opacity;
 }
 
 #contato #grad {
@@ -96,6 +100,7 @@ html {
     -o-animation: animacao-gradiente 23s ease infinite;
     animation: animacao-gradiente 23s ease infinite;
     overflow: hidden;
+    will-change: opacity;
 }
 
 body {
@@ -143,7 +148,21 @@ body {
     color: black;
 }
 
-#container {
+.conteudo-container {
+    display: flex;
+    padding: 10%;
+}
+
+.conteudo {
+    font-size: calc(100% + 0.390625vw);
+    transform: translateY(20vh);
+    height: 100%;
+    width: 100%;
+    align-self: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+#title-container {
     position: relative;
     width: 100%;
     top: 15vh;
@@ -151,18 +170,27 @@ body {
     background: linear-gradient(to right bottom, white, rgba(0, 0, 0, 0));
     border-radius: 0px 0px 3px 0px;
     overflow: hidden;
+    will-change: width;
 }
 
 .titulo {
     position: relative;
-    font-size: 100%;
+    font-size: calc(100% + 0.390625vw);
     white-space: nowrap;
     font-family: 'Roboto', sans-serif;
     color: black;
     text-align: center;
-    padding-top: 1vmax;
-    padding-bottom: 1vmax;
-    -webkit-box-reflect: below;
+    padding: 5px;
+}
+
+.linha {
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px 0px 50px 0px;
+    width: 80%;
+    height: 2px;
+    opacity: 0.3;
+    background-color: white;
 }
 
 #sobre-mim {
