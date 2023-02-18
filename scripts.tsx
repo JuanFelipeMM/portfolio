@@ -8,11 +8,11 @@ window.onload = (() => {
 window.addEventListener("scroll", function () {
 
 
-    let teini = document.getElementById('tela-inicial');
-    let sm = document.getElementById('sobre-mim');
-    let con = document.getElementById('conhecimentos');
-    let proj = document.getElementById('projetos');
-    let cont = document.getElementById('contato');
+    const teini = document.getElementById('tela-inicial');
+    const sm = document.getElementById('sobre-mim');
+    const con = document.getElementById('conhecimentos');
+    const proj = document.getElementById('projetos');
+    const cont = document.getElementById('contato');
 
     var cliHei = document.documentElement.clientHeight;
     var offSet = cliHei * 0.30;
@@ -62,7 +62,7 @@ window.addEventListener("scroll", function () {
 
 function changeColors(nomeTela) {
     console.log("NOME TELA:", nomeTela);
-    for (let i = 0; i < telas.length; i++) {
+    for (var i = 0; i < telas.length; i++) {
         if (telas[i]?.id === nomeTela) {
             var grad = telas[i]?.children[0];
             if (telas[i]?.id !== 'tela-inicial') {
