@@ -118,18 +118,32 @@ body {
 
 .frase-bem-vindo {
     font-family: 'Roboto', sans-serif;
-    position: absolute;
-    display: inline-flex;
+    position: relative;
+    display: flex;
     width: 80%;
     height: 50%;
     left: 10%;
     top: 10%;
 }
 
+@media only screen and (max-width:480px) {
+    .frase-bem-vindo {
+        align-items: center;
+        justify-content: center;
+        top: 5% !important;
+    }
+    .frase-bem-vindo p {
+        border-width: 3px !important;
+        margin-top: 3% !important;
+    }
+    .frase-bem-vindo p span {
+        font-size: 12vw !important;
+    }
+}
+
 .frase-bem-vindo p {
     border: 5px solid;
     border-image-slice: 1;
-    border-width: 5px;
     border-image-source: linear-gradient(white 10%, rgba(0, 0, 0, 0)20%, rgba(0, 0, 0, 0)80%, white 90%);
     padding: clamp(2px, 5px, 10px);
     width: auto;
@@ -141,7 +155,7 @@ body {
 
 .frase-bem-vindo p span {
     color: white;
-    font-size: 6vw;
+    font-size: 50px;
     display: inline-block;
     position: relative;
 }
@@ -171,7 +185,7 @@ body {
     display: flexbox;
     text-decoration: none;
     background: linear-gradient(white, rgba(255, 255, 255, 0));
-    color: rgba(0, 0, 0, 0.500);
+    color: rgb(255, 255, 255);
     transition: font-size, height, font-size 0.15s ease;
 }
 
