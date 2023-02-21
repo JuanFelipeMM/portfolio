@@ -234,7 +234,7 @@ body {
     font-size: calc(100% + 0.390625vw);
     white-space: nowrap;
     font-family: 'Roboto', sans-serif;
-    color: black;
+    color: rgba(255, 255, 255, 0.750);
     text-align: center;
     padding: 5px;
     will-change: width;
