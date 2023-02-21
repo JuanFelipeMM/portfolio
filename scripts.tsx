@@ -5,6 +5,7 @@ window.onbeforeunload = function () {
 window.onload = (() => {
     
     document.querySelectorAll(".frase-bem-vindo p").item(0).style.visibility="hidden";
+    document.querySelectorAll(".frase-bem-vindo p").item(0).style.opacity="0";
     document.querySelectorAll('#title-container').forEach(title_container => {
         title_container.style.width = "0";
         title_container.style.opacity = "1";
@@ -25,8 +26,11 @@ window.onload = (() => {
     
     var sec = 0.4;
     window.scrollTo(0, 0);
+    
     setInterval(() => {
         document.querySelectorAll(".frase-bem-vindo p").item(0).style.visibility="visible";
+        document.querySelectorAll(".frase-bem-vindo p").item(0).style.opacity="1";
+    document.querySelectorAll(".frase-bem-vindo p").item(0).style.transition="opacity 1s ease-in-out";
         for (var j = 0; j < frase.length; j++) {
             frase[j].style.transform = "translate(0px,0px)";
             frase[j].style.transition = "transform "+sec+"s ease-in-out, opacity "+sec+"s ease-in-out";
@@ -34,6 +38,7 @@ window.onload = (() => {
             sec += 0.4;
         }
     }, 1000);
+    
 
     
     setInterval(() => {
