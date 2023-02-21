@@ -1,10 +1,61 @@
 var telas;
 window.onload = (() => {
-    var title_containers = document.querySelectorAll('#title-container').forEach(title_container => {
+    document.querySelectorAll('#title-container').forEach(title_container => {
         title_container.style.width = "0";
         title_container.style.opacity = "1";
     });
+    var string="";
+    document.querySelectorAll(".frase-bem-vindo p span").forEach(span => {
+      string += span.innerHTML.toString();
+    });
+     
+    var text = document.querySelectorAll(".frase-bem-vindo p")[0];
+    string.split("");
+    text.innerHTML="";
+    for (var i=0; i < string.length; i++) {
+        if(string[i]===" "){
+            text.innerHTML += "</br>";
+        }else{
+
+            text.innerHTML += "<span>" + string[i] + "</span>";
+        }
+    }
+
+    const frase = document.querySelectorAll('.frase-bem-vindo p span');
+    var widthPage = document.getElementById('tela-inicial')?.clientWidth;
+    var heightPage = document.getElementById('tela-inicial')?.clientHeight;
+    
+    for (let i = 0; i < frase.length; i++) {
+        var randW = Math.floor(Math.random() * widthPage - (widthPage * 0.4));
+        var randH = Math.floor(Math.random() * heightPage - (heightPage * 0.5));
+        
+        frase[i].style.transform = "translate(" + randW + "px, " + randH + "px) rotate("+(Math.random()*360)+"deg)";
+        frase[i].style.opacity="0";
+    }
+    
+    var sec = 0.4;
+    setInterval(() => {
+        for (var j = 0; j < frase.length; j++) {
+            frase[j].style.transform = "translate(0px,0px)";
+            frase[j].style.transition = "all "+sec+"s ease-in-out";
+            frase[j].style.opacity="1";
+            sec += 0.4;
+        }
+    }, 1000);
+
+    
+    setInterval(() => {
+        sec=0.1;
+        for (var k = 0; k < frase.length; k++) {
+            frase[k].style.animation = "pequenoPulo 1s ease";
+            frase[k].style.animationDelay = sec + "s";
+            sec += 0.15;
+        }
+    }, 6300);
+
 })
+
+
 window.addEventListener("scroll", function () {
 
 
@@ -19,8 +70,7 @@ window.addEventListener("scroll", function () {
     var scr = document.documentElement?.scrollTop;
     telas = [teini, sm, con, proj, cont];
 
-    console.log("CH", document.documentElement.clientHeight);
-    console.log("scr:", scr);
+
     if (teini?.clientHeight !== undefined) {
         if (scr >= (teini?.getClientRects().item(0)?.top + scr) && scr <= (teini?.getClientRects().item(0)?.bottom + scr)) {
             changeColors(teini?.id);
@@ -48,8 +98,7 @@ window.addEventListener("scroll", function () {
         }
     }
 
-    console.log("cont Height:", cont?.getClientRects().item(0)?.top + scr - offSet);
-    console.log("cont Bottom:", cont?.getClientRects().item(0)?.bottom + scr - offSet);
+
     if (cont?.clientHeight !== undefined) {
         if (scr >= (cont?.getClientRects().item(0)?.top + scr - offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr)) {
             changeColors(cont?.id);
@@ -61,7 +110,7 @@ window.addEventListener("scroll", function () {
 );
 
 function changeColors(nomeTela) {
-    console.log("NOME TELA:", nomeTela);
+
     for (var i = 0; i < telas.length; i++) {
         if (telas[i]?.id === nomeTela) {
             var grad = telas[i]?.children[0];
@@ -70,7 +119,7 @@ function changeColors(nomeTela) {
                 titulo.style.width = "50%";
                 titulo.style.transition = "width 1s ease";
             }
-                console.log(nomeTela," ENTROU IF");
+
 
             grad.style.display = "";
             grad.style.opacity = "1";
@@ -78,20 +127,21 @@ function changeColors(nomeTela) {
 
         }
         else {
-            console.log(nomeTela," ENTROU ELSE");
+
             var grad = telas[i]?.children[0];
             if (telas[i]?.id !== 'tela-inicial') {
                 var titulo = telas[i]?.children[1];
                 titulo.style.width = "0";
                 titulo.style.transition = "width 1s ease";
             }
-            if(telas[i]?.id === nomeTela){//caso primeiro if (telas[i]?.id === nomeTela) { falhe
+            if (telas[i]?.id === nomeTela) {//caso primeiro if (telas[i]?.id === nomeTela) { falhe
                 setTimeout(() => {
-                        grad.style.display = "none";
-                    }, 1000);
+                    grad.style.display = "none";
+                }, 1000);
             }
             grad.style.opacity = "0";
             grad.style.transition = "opacity 1s linear";
         }
     }
 }
+

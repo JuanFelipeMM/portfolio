@@ -109,9 +109,34 @@ body {
 }
 
 #tela-inicial {
+    position: relative;
     width: 100%;
     height: 100vh;
     display: flexbox;
+}
+
+.frase-bem-vindo {
+    font-family: 'Roboto', sans-serif;
+    position: absolute;
+    display: inline-flex;
+    width: 80%;
+    height: 50%;
+    left: 10%;
+    top: 40%;
+}
+
+.frase-bem-vindo p {
+    width: 60%;
+    height: auto;
+    position: absolute;
+    white-space: break-spaces;
+}
+
+.frase-bem-vindo p span {
+    color: white;
+    font-size: 200%;
+    display: inline-block;
+    position: relative;
 }
 
 .menu {
@@ -150,8 +175,30 @@ body {
 }
 
 .conteudo-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
     display: flex;
-    padding: 10%;
+    align-items: center;
+    justify-content: center;
+}
+
+.quad1 {
+    position: inherit;
+    top: 9.8vh;
+    left: 50vw;
+    width: 50%;
+    height: 50%;
+    border: 4px solid white;
+}
+
+.quad2 {
+    position: inherit;
+    bottom: 10vh;
+    right: 30vw;
+    width: 50%;
+    height: 50%;
+    border: 4px solid white;
 }
 
 .conteudo {
@@ -217,6 +264,18 @@ body {
     font-size: 2.7vmax;
     width: 100%;
     height: 100vh;
+}
+
+@keyframes pequenoPulo {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 @-webkit-keyframes animacao-gradiente {
