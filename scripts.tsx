@@ -1,26 +1,16 @@
 var telas;
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  }
 window.onload = (() => {
+    
+    document.querySelectorAll(".frase-bem-vindo p").item(0).style.visibility="hidden";
     document.querySelectorAll('#title-container').forEach(title_container => {
         title_container.style.width = "0";
         title_container.style.opacity = "1";
     });
-    var string="";
-    document.querySelectorAll(".frase-bem-vindo p span").forEach(span => {
-      string += span.innerHTML.toString();
-    });
-     
-    var text = document.querySelectorAll(".frase-bem-vindo p")[0];
-    string.split("");
-    text.innerHTML="";
-    for (var i=0; i < string.length; i++) {
-        if(string[i]===" "){
-            text.innerHTML += "</br>";
-        }else{
 
-            text.innerHTML += "<span>" + string[i] + "</span>";
-        }
-    }
-
+    setText("");
     const frase = document.querySelectorAll('.frase-bem-vindo p span');
     var widthPage = document.getElementById('tela-inicial')?.clientWidth;
     var heightPage = document.getElementById('tela-inicial')?.clientHeight;
@@ -34,10 +24,12 @@ window.onload = (() => {
     }
     
     var sec = 0.4;
+    window.scrollTo(0, 0);
     setInterval(() => {
+        document.querySelectorAll(".frase-bem-vindo p").item(0).style.visibility="visible";
         for (var j = 0; j < frase.length; j++) {
             frase[j].style.transform = "translate(0px,0px)";
-            frase[j].style.transition = "all "+sec+"s ease-in-out";
+            frase[j].style.transition = "transform "+sec+"s ease-in-out, opacity "+sec+"s ease-in-out";
             frase[j].style.opacity="1";
             sec += 0.4;
         }
@@ -54,6 +46,25 @@ window.onload = (() => {
     }, 6300);
 
 })
+
+function setText(string){
+    if(string===""){
+        document.querySelectorAll(".frase-bem-vindo p span").forEach(span => {
+        string += span.innerHTML.toString();
+        });
+    }
+    var text = document.querySelectorAll(".frase-bem-vindo p")[0];
+    string.split("");
+    text.innerHTML="";
+    for (var i=0; i < string.length; i++) {
+            if(string[i]===" "){
+                text.innerHTML += "</br>";
+            }else{
+    
+                text.innerHTML += "<span>" + string[i] + "</span>";
+            }
+    }
+}
 
 
 window.addEventListener("scroll", function () {
