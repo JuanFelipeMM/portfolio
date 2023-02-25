@@ -1,11 +1,11 @@
 var telas;
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
-  }
+}
 window.onload = (() => {
-    
-    document.querySelectorAll(".frase-bem-vindo p").item(0).style.visibility="hidden";
-    document.querySelectorAll(".frase-bem-vindo p").item(0).style.opacity="0";
+
+    document.querySelectorAll(".frase-bem-vindo p").item(0).style.visibility = "hidden";
+    document.querySelectorAll(".frase-bem-vindo p").item(0).style.opacity = "0";
     document.querySelectorAll('#title-container').forEach(title_container => {
         title_container.style.width = "0";
         title_container.style.opacity = "1";
@@ -15,36 +15,36 @@ window.onload = (() => {
     const frase = document.querySelectorAll('.frase-bem-vindo p span');
     var widthPage = document.getElementById('tela-inicial')?.clientWidth;
     var heightPage = document.getElementById('tela-inicial')?.clientHeight;
-    
+
     for (let i = 0; i < frase.length; i++) {
         var randW = Math.floor(Math.random() * widthPage - (widthPage * 0.4));
         var randH = Math.floor(Math.random() * heightPage - (heightPage * 0.5));
-        
-        frase[i].style.transform = "translate(" + randW + "px, " + randH + "px) rotate("+(Math.random()*360)+"deg)";
-        frase[i].style.opacity="0";
+
+        frase[i].style.transform = "translate(" + randW + "px, " + randH + "px) rotate(" + (Math.random() * 360) + "deg)";
+        frase[i].style.opacity = "0";
     }
-    
+
     var sec = 0.4;
     window.scrollTo(0, 0);
-    
+
     setInterval(() => {
-        document.querySelectorAll(".frase-bem-vindo p").item(0).style.visibility="visible";
-        document.querySelectorAll(".frase-bem-vindo p").item(0).style.opacity="1";
-    document.querySelectorAll(".frase-bem-vindo p").item(0).style.transition="opacity 1s ease-in-out";
+        document.querySelectorAll(".frase-bem-vindo p").item(0).style.visibility = "visible";
+        document.querySelectorAll(".frase-bem-vindo p").item(0).style.opacity = "1";
+        document.querySelectorAll(".frase-bem-vindo p").item(0).style.transition = "opacity 1s ease-in-out";
         for (var j = 0; j < frase.length; j++) {
             frase[j].style.transform = "translate(0px,0px)";
-            frase[j].style.transition = "transform "+sec+"s ease-in-out, opacity "+sec+"s ease-in-out";
-            frase[j].style.opacity="1";
+            frase[j].style.transition = "transform " + sec + "s ease-in-out, opacity " + sec + "s ease-in-out";
+            frase[j].style.opacity = "1";
             sec += 0.4;
         }
     }, 1000);
-    
 
-    
+
+
     setInterval(() => {
-        sec=0.1;
+        sec = 0.1;
         for (var k = 0; k < frase.length; k++) {
-            frase[k].style.animation = "pequenoPulo 1s ease";
+            frase[k].style.animation = "transpAniTexto 1s linear";
             frase[k].style.animationDelay = sec + "s";
             sec += 0.15;
         }
@@ -52,22 +52,23 @@ window.onload = (() => {
 
 })
 
-function setText(string){
-    if(string===""){
+
+function setText(string) {
+    if (string === "") {
         document.querySelectorAll(".frase-bem-vindo p span").forEach(span => {
-        string += span.innerHTML.toString();
+            string += span.innerHTML.toString();
         });
     }
     var text = document.querySelectorAll(".frase-bem-vindo p")[0];
     string.split("");
-    text.innerHTML="";
-    for (var i=0; i < string.length; i++) {
-            if(string[i]===" "){
-                text.innerHTML += "</br>";
-            }else{
-    
-                text.innerHTML += "<span>" + string[i] + "</span>";
-            }
+    text.innerHTML = "";
+    for (var i = 0; i < string.length; i++) {
+        if (string[i] === " ") {
+            text.innerHTML += "&nbsp";
+        } else {
+
+            text.innerHTML += "<span>" + string[i] + "</span>";
+        }
     }
 }
 
@@ -87,39 +88,30 @@ window.addEventListener("scroll", function () {
     telas = [teini, sm, con, proj, cont];
 
 
-    if (teini?.clientHeight !== undefined) {
-        if (scr >= (teini?.getClientRects().item(0)?.top + scr) && scr <= (teini?.getClientRects().item(0)?.bottom + scr)) {
-            changeColors(teini?.id);
+    if (scr >= (teini?.getClientRects().item(0)?.top + scr) && scr <= (teini?.getClientRects().item(0)?.bottom + scr)) {
+        changeColors(teini?.id);
 
-        }
     }
 
-    if (sm?.clientHeight !== undefined) {
-        if (scr >= (sm?.getClientRects().item(0)?.top + scr - offSet) && scr <= (sm?.getClientRects().item(0)?.bottom + scr)) {
-            changeColors(sm?.id);
+    if (scr >= (sm?.getClientRects().item(0)?.top + scr - offSet) && scr <= (sm?.getClientRects().item(0)?.bottom + scr)) {
+        changeColors(sm?.id);
 
-        }
-    }
-    if (con?.clientHeight !== undefined) {
-        if (scr >= (con?.getClientRects().item(0)?.top + scr - offSet) && scr <= (con?.getClientRects().item(0)?.bottom + scr)) {
-            changeColors(con?.id);
-
-        }
     }
 
-    if (proj?.clientHeight !== undefined) {
-        if (scr >= (proj?.getClientRects().item(0)?.top + scr - offSet) && scr <= (proj?.getClientRects().item(0)?.bottom + scr)) {
-            changeColors(proj?.id);
+    if (scr >= (con?.getClientRects().item(0)?.top + scr - offSet) && scr <= (con?.getClientRects().item(0)?.bottom + scr)) {
+        changeColors(con?.id);
 
-        }
+    }
+
+    if (scr >= (proj?.getClientRects().item(0)?.top + scr - offSet) && scr <= (proj?.getClientRects().item(0)?.bottom + scr)) {
+        changeColors(proj?.id);
+
     }
 
 
-    if (cont?.clientHeight !== undefined) {
-        if (scr >= (cont?.getClientRects().item(0)?.top + scr - offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr)) {
-            changeColors(cont?.id);
+    if (scr >= (cont?.getClientRects().item(0)?.top + scr - offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr)) {
+        changeColors(cont?.id);
 
-        }
     }
 
 }
