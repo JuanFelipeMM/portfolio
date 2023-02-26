@@ -31,6 +31,44 @@ body {
     background-size: 100% auto;
 }
 
+.menu {
+    backdrop-filter: blur(10px);
+    margin-top: 0px;
+    padding-top: 0px;
+    width: 100vw;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+    position: fixed;
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    border-bottom: 0.5px solid white;
+    box-shadow: 0px -25px 50px -25px white inset, 0px -25px 50px 25px white;
+}
+
+.menu a {
+    width: 100vw;
+    height: auto;
+    padding-top: 0px;
+    padding: 10px;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    margin-top: 0px;
+    font-size: calc(45% + 0.390625vw);
+    display: flexbox;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border-bottom: 3px;
+    transition: font-size 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu a:hover {
+    border: 0.5px solid white;
+    box-shadow: 0px 0px 15px 5px white inset, 0px 0px 10px 5px white;
+    font-size: calc(60% + 0.390625vw);
+}
+
 #tela-inicial #grad {
     z-index: -10;
     top: 0;
@@ -146,7 +184,10 @@ body {
 }
 
 .tl-container-conteudo {
-    display: grid;
+    row-gap: 0px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     place-items: center;
     position: relative;
     width: 100vw;
@@ -156,10 +197,71 @@ body {
 }
 
 .pre-perfil {
-    position: sticky;
-    width: 30%;
+    display: flex;
+    position: relative;
+    width: 40%;
     aspect-ratio: 1 / 1;
-    border: 2px solid white;
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+.efeito-foto {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.container-fundo {
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    transition: 0.5s ease-in-out;
+    transform-origin: bottom;
+}
+
+#fundo-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: yellowgreen;
+}
+
+.container-foto {
+    z-index: 1;
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    clip-path: polygon(50% 100%, 0 50%, 0 -100%, 200% 0, 100% 50%);
+}
+
+#foto-frente1 {
+    aspect-ratio: 3/4;
+    position: absolute;
+    width: 100%;
+    bottom: -15%;
+    transition: 0.5s ease-in-out;
+    transform-origin: bottom;
+    -webkit-filter: drop-shadow(12px 12px 7px transparent);
+    filter: grayscale(1) drop-shadow(12px 12px 7px transparent);
+}
+
+#foto-frente1:hover {
+    transform: translateY(-10%) scale(1.05);
+    -webkit-filter: drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+    filter: grayscale(0) drop-shadow(12px 12px 7px rgba(0, 0, 0, 0.5));
+}
+
+.container-foto:hover+.container-fundo {
+    transform: scale(1.15) translateY(0%);
+    filter: brightness(0.85);
 }
 
 @media only screen and (max-width:480px) {
@@ -168,6 +270,9 @@ body {
     }
     .frase-bem-vindo p span {
         font-size: 4vw !important;
+    }
+    .pre-perfil {
+        width: 80%;
     }
     #perfilRosto {
         top: 90%;
@@ -198,43 +303,6 @@ body {
     font-size: 6vh;
     display: inline-block;
     position: relative;
-}
-
-.menu {
-    margin-top: 0px;
-    padding-top: 0px;
-    width: 100vw;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    z-index: 10;
-    position: fixed;
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
-    border-bottom: 0.5px solid white;
-    box-shadow: 0px -25px 50px -25px white inset, 0px -25px 50px 25px white;
-}
-
-.menu a {
-    width: 100vw;
-    height: auto;
-    padding-top: 0px;
-    padding: 10px;
-    padding-left: 1vw;
-    padding-right: 1vw;
-    margin-top: 0px;
-    font-size: calc(45% + 0.390625vw);
-    display: flexbox;
-    text-decoration: none;
-    color: rgb(255, 255, 255);
-    border-bottom: 3px;
-    transition: font-size 0.3s ease, box-shadow 0.3s ease;
-}
-
-.menu a:hover {
-    border: 0.5px solid white;
-    box-shadow: 0px 0px 15px 5px white inset, 0px 0px 10px 5px white;
-    font-size: calc(60% + 0.390625vw);
 }
 
 .conteudo-container {
@@ -311,6 +379,12 @@ body {
     left: 100%;
     bottom: 90vh;
     height: 100vh;
+    transition: 1s ease-in-out;
+}
+
+#perfilRosto:hover {
+    opacity: 1;
+    transition: 1s ease-in-out;
 }
 
 #sobre-mim {
@@ -389,6 +463,15 @@ body {
     }
     100% {
         background-position: 0% 50%
+    }
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
     }
 }
 
