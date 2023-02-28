@@ -24,26 +24,27 @@ window.onload = (() => {
         frase[i].style.opacity = "0";
     }
 
-    var sec = 0.4;
+    let sec;
     window.scrollTo(0, 0);
 
     setInterval(() => {
+        sec = 0.4;
         document.querySelectorAll(".frase-bem-vindo p").item(0).style.visibility = "visible";
         document.querySelectorAll(".frase-bem-vindo p").item(0).style.opacity = "1";
         document.querySelectorAll(".frase-bem-vindo p").item(0).style.transition = "opacity 1s ease-in-out";
-        for (var j = 0; j < frase.length; j++) {
+        for (let j = 0; j < frase.length; j++) {
             frase[j].style.transform = "translate(0px,0px)";
             frase[j].style.transition = "transform " + sec + "s ease-in-out, opacity " + sec + "s ease-in-out";
             frase[j].style.opacity = "1";
             sec += 0.4;
         }
     }, 1000);
-
+    console.log
 
 
     setInterval(() => {
         sec = 0.1;
-        for (var k = 0; k < frase.length; k++) {
+        for (let k = 0; k < frase.length; k++) {
             frase[k].style.animation = "brilhoAni 1s ease-out";
             frase[k].style.animationDelay = sec + "s";
             sec += 0.15;
