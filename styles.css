@@ -304,6 +304,7 @@ body {
     color: white;
     font-size: 6vh;
     display: inline-block;
+    will-change: filter, text-shadow;
     text-shadow: 0 0 10px #ffffff00, 0 0 20px #ffffff00, 0 0 30px #ffffff00, 0 0 40px #ffffff00, 0 0 50px #ffffff00, 0 0 60px #ffffff00, 0 0 70px #ffffff00;
     -webkit-filter: drop-shadow(5px 9px 1px rgba(0, 0, 0, 0));
     filter: drop-shadow(5px 9px 1px rgba(0, 0, 0, 0));

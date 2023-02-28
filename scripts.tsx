@@ -4,8 +4,9 @@ window.onbeforeunload = function () {
 }
 window.onload = (() => {
 
-    document.querySelectorAll(".frase-bem-vindo p").item(0).style.visibility = "hidden";
-    document.querySelectorAll(".frase-bem-vindo p").item(0).style.opacity = "0";
+    const pFrase = document.querySelectorAll(".frase-bem-vindo p").item(0);
+    pFrase.style.visibility = "hidden";
+    pFrase.style.opacity = "0";
     document.querySelectorAll('#title-container').forEach(title_container => {
         title_container.style.width = "0";
         title_container.style.opacity = "1";
@@ -16,6 +17,7 @@ window.onload = (() => {
     var widthPage = document.getElementById('tela-inicial')?.clientWidth;
     var heightPage = document.getElementById('tela-inicial')?.clientHeight;
 
+
     for (let i = 0; i < frase.length; i++) {
         var randW = Math.floor(Math.random() * widthPage - (widthPage * 0.4));
         var randH = Math.floor(Math.random() * heightPage - (heightPage * 0.5));
@@ -24,14 +26,14 @@ window.onload = (() => {
         frase[i].style.opacity = "0";
     }
 
-    let sec;
+    var sec;
     window.scrollTo(0, 0);
 
     setInterval(() => {
         sec = 0.4;
-        document.querySelectorAll(".frase-bem-vindo p").item(0).style.visibility = "visible";
-        document.querySelectorAll(".frase-bem-vindo p").item(0).style.opacity = "1";
-        document.querySelectorAll(".frase-bem-vindo p").item(0).style.transition = "opacity 1s ease-in-out";
+        pFrase.style.visibility = "visible";
+        pFrase.style.opacity = "1";
+        pFrase.style.transition = "opacity 1s ease-in-out";
         for (let j = 0; j < frase.length; j++) {
             frase[j].style.transform = "translate(0px,0px)";
             frase[j].style.transition = "transform " + sec + "s ease-in-out, opacity " + sec + "s ease-in-out";
@@ -60,10 +62,10 @@ function setText(string) {
             string += span.innerHTML.toString();
         });
     }
-    var text = document.querySelectorAll(".frase-bem-vindo p")[0];
+    let text = document.querySelectorAll(".frase-bem-vindo p")[0];
     string.split("");
     text.innerHTML = "";
-    for (var i = 0; i < string.length; i++) {
+    for (let i = 0; i < string.length; i++) {
         if (string[i] === " ") {
             text.innerHTML += "&nbsp";
         } else {
