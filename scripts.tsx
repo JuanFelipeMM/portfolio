@@ -44,7 +44,7 @@ window.onload = (() => {
     setInterval(() => {
         sec = 0.1;
         for (var k = 0; k < frase.length; k++) {
-            frase[k].style.animation = "transpAniTexto 1s linear";
+            frase[k].style.animation = "brilhoAni 1s ease-out";
             frase[k].style.animationDelay = sec + "s";
             sec += 0.15;
         }
