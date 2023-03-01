@@ -188,6 +188,8 @@ body {
 .pre-perfil {
     display: flex;
     position: relative;
+    justify-self: center;
+    align-self: center;
     width: 40%;
     aspect-ratio: 1 / 1;
     animation: fadeIn 2.5s ease-in-out;
@@ -332,17 +334,17 @@ body {
         border-bottom: 3px solid white !important;
     }
     .frase-bem-vindo p span {
-        font-size: 4vw !important;
+        font-size: 5vw !important;
     }
     .pre-perfil {
-        width: 80%;
+        width: 100%;
     }
     #perfilRosto {
         top: 90%;
         height: 50vh !important;
     }
     .pre-perfil .nome {
-        font-size: 45% !important;
+        font-size: 3vw !important;
     }
 }
 
