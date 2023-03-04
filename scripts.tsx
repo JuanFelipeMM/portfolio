@@ -3,7 +3,6 @@ window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 }
 window.onload = (() => {
-
     const pFrase = document.querySelectorAll(".frase-bem-vindo p").item(0);
     pFrase.style.visibility = "hidden";
     pFrase.style.opacity = "0";
@@ -98,7 +97,6 @@ window.addEventListener("scroll", function () {
 
     if (scr >= (sm?.getClientRects().item(0)?.top + scr - offSet) && scr <= (sm?.getClientRects().item(0)?.bottom + scr)) {
         changeColors(sm?.id);
-
     }
 
     if (scr >= (con?.getClientRects().item(0)?.top + scr - offSet) && scr <= (con?.getClientRects().item(0)?.bottom + scr)) {
@@ -130,6 +128,7 @@ function changeColors(nomeTela) {
                 titulo.style.width = "50%";
                 titulo.style.transition = "width 1s ease";
             }
+            console.log("Passou");
 
 
             grad.style.display = "";
@@ -138,10 +137,11 @@ function changeColors(nomeTela) {
 
         }
         else {
+            console.log("Entrou Else");
 
-            var grad = telas[i]?.children[0];
+            let grad = telas[i]?.children[0];
             if (telas[i]?.id !== 'tela-inicial') {
-                var titulo = telas[i]?.children[1];
+                let titulo = telas[i]?.children[1];
                 titulo.style.width = "0";
                 titulo.style.transition = "width 1s ease";
             }
@@ -154,5 +154,6 @@ function changeColors(nomeTela) {
             grad.style.transition = "opacity 1s linear";
         }
     }
+
 }
 
