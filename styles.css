@@ -349,10 +349,24 @@ body {
         font-size: calc(90% + 0.390625vw) !important;
     }
     .nome-grande {
+        writing-mode: vertical-rl;
+        left: auto !important;
+        bottom: auto !important;
+        height: 40% !important;
+        right: 2%;
+        top: 10%;
         font-size: calc(200% + 0.390625vw) !important;
     }
+    #sobre-mim .conteudo-container {
+        align-items: flex-start !important;
+        justify-content: start !important;
+    }
+    #sobre-mim .conteudo-container .conteudo {
+        margin-top: 0%;
+        width: 45%;
+    }
     #sobre-mim .conteudo ul {
-        font-size: calc(50% + 0.390625vw) !important;
+        font-size: calc(55% + 0.390625vw) !important;
     }
 }
 
