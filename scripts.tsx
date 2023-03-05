@@ -90,29 +90,16 @@ window.addEventListener("scroll", function () {
     telas = [teini, sm, con, proj, cont];
 
 
-    if (scr >= (teini?.getClientRects().item(0)?.top + scr) && scr <= (teini?.getClientRects().item(0)?.bottom + scr)) {
+    if (scr >= (teini?.getClientRects().item(0)?.top + scr) && scr <= (teini?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         changeColors(teini?.id);
-
-    }
-
-    if (scr >= (sm?.getClientRects().item(0)?.top + scr - offSet) && scr <= (sm?.getClientRects().item(0)?.bottom + scr)) {
+    }else if (scr >= (sm?.getClientRects().item(0)?.top + scr - offSet) && scr <= (sm?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         changeColors(sm?.id);
-    }
-
-    if (scr >= (con?.getClientRects().item(0)?.top + scr - offSet) && scr <= (con?.getClientRects().item(0)?.bottom + scr)) {
+    }else if (scr >= (con?.getClientRects().item(0)?.top + scr - offSet) && scr <= (con?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         changeColors(con?.id);
-
-    }
-
-    if (scr >= (proj?.getClientRects().item(0)?.top + scr - offSet) && scr <= (proj?.getClientRects().item(0)?.bottom + scr)) {
+    }else if (scr >= (proj?.getClientRects().item(0)?.top + scr - offSet) && scr <= (proj?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         changeColors(proj?.id);
-
-    }
-
-
-    if (scr >= (cont?.getClientRects().item(0)?.top + scr - offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr)) {
+    }else if (scr >= (cont?.getClientRects().item(0)?.top + scr - offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         changeColors(cont?.id);
-
     }
 
 }
@@ -145,11 +132,7 @@ function changeColors(nomeTela) {
                 titulo.style.width = "0";
                 titulo.style.transition = "width 1s ease";
             }
-            if (telas[i]?.id === nomeTela) {//caso primeiro if (telas[i]?.id === nomeTela) { falhe
-                setTimeout(() => {
-                    grad.style.display = "none";
-                }, 1000);
-            }
+            
             grad.style.opacity = "0";
             grad.style.transition = "opacity 1s linear";
         }
