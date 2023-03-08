@@ -457,31 +457,29 @@ body {
 }
 
 #conhecimentos .conteudo-container {
+    display: flex;
     position: absolute;
     z-index: 3;
     width: 100%;
-    height: 50vh;
+    height: 70%;
     justify-self: center;
     align-self: center;
     justify-content: center;
     align-content: center;
-    height: 70%;
     bottom: 0%;
     left: 0%;
     margin: 0 auto;
-    display: flex;
 }
 
 #conhecimentos .conteudo {
     position: absolute;
+    height: 80%;
     aspect-ratio: 1/1;
-    height: 50%;
-    width: height;
     color: white;
     display: grid;
     transform: rotate(45deg);
-    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(1fr, 50px));
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(1fr, 80px));
 }
 
 #conhecimentos .conteudo .conhe-container {
