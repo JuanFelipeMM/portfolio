@@ -91,21 +91,21 @@ window.addEventListener("scroll", function () {
 
 
     if (scr >= (teini?.getClientRects().item(0)?.top + scr) && scr <= (teini?.getClientRects().item(0)?.bottom + scr  - offSet)) {
-        changeColors(teini?.id);
+        transition(teini?.id);
     }else if (scr >= (sm?.getClientRects().item(0)?.top + scr - offSet) && scr <= (sm?.getClientRects().item(0)?.bottom + scr  - offSet)) {
-        changeColors(sm?.id);
+        transition(sm?.id);
     }else if (scr >= (con?.getClientRects().item(0)?.top + scr - offSet) && scr <= (con?.getClientRects().item(0)?.bottom + scr  - offSet)) {
-        changeColors(con?.id);
+        transition(con?.id);
     }else if (scr >= (proj?.getClientRects().item(0)?.top + scr - offSet) && scr <= (proj?.getClientRects().item(0)?.bottom + scr  - offSet)) {
-        changeColors(proj?.id);
+        transition(proj?.id);
     }else if (scr >= (cont?.getClientRects().item(0)?.top + scr - offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr  - offSet)) {
-        changeColors(cont?.id);
+        transition(cont?.id);
     }
 
 }
 );
 
-function changeColors(nomeTela) {
+function transition(nomeTela) {
 
     for (var i = 0; i < telas.length; i++) {
         if (telas[i]?.id === nomeTela) {
@@ -115,8 +115,6 @@ function changeColors(nomeTela) {
                 titulo.style.width = "50%";
                 titulo.style.transition = "width 1s ease";
             }
-            console.log("Passou");
-
 
             grad.style.display = "";
             grad.style.opacity = "1";
@@ -124,7 +122,6 @@ function changeColors(nomeTela) {
 
         }
         else {
-            console.log("Entrou Else");
 
             let grad = telas[i]?.children[0];
             if (telas[i]?.id !== 'tela-inicial') {

@@ -361,11 +361,11 @@ body {
         justify-content: left !important;
     }
     #sobre-mim .conteudo-container .conteudo {
-        margin: 10%;
+        margin: 8%;
         width: 45%;
     }
     #sobre-mim .conteudo .paragrafo {
-        width: 15em;
+        width: 13em;
         margin-bottom: 15% !important;
         font-size: 0.7em !important;
     }
@@ -430,12 +430,13 @@ body {
 }
 
 #sobre-mim .conteudo .paragrafo {
+    text-transform: uppercase;
     font-size: 1.3em;
     overflow-wrap: break-word;
     display: flex;
     color: rgb(255, 255, 255);
     position: relative;
-    border: 1px solid rgb(255, 255, 255);
+    border: 3px solid rgb(255, 255, 255);
     padding: 5px;
     margin: 5%;
 }
@@ -453,6 +454,47 @@ body {
 
 #sobre-mim .conteudo .paragrafo:hover .at {
     transform: translate(-5px, -5px);
+}
+
+#conhecimentos .conteudo-container {
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 50vh;
+    justify-self: center;
+    align-self: center;
+    justify-content: center;
+    align-content: center;
+    height: 70%;
+    bottom: 0%;
+    left: 0%;
+    margin: 0 auto;
+    display: flex;
+}
+
+#conhecimentos .conteudo {
+    position: absolute;
+    aspect-ratio: 1/1;
+    height: 50%;
+    width: height;
+    color: white;
+    display: grid;
+    transform: rotate(45deg);
+    grid-template-columns: repeat(auto-fit, minmax(50px, 1fr));
+    grid-template-rows: repeat(auto-fit, minmax(1fr, 50px));
+}
+
+#conhecimentos .conteudo .conhe-container {
+    display: flex;
+    aspect-ratio: 1/1;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid white;
+    margin: 2px;
+}
+
+.conhe {
+    transform: rotate(-45deg);
 }
 
 .nome-grande {
