@@ -113,13 +113,13 @@ body {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: linear-gradient(91deg, #4a7b62, #000000, #b96009);
+    background-image: linear-gradient(91deg, #4a7b62, #000000, #b96009);
     background-size: 600% 600%;
     -webkit-animation: animacao-gradiente 23s ease infinite;
     -moz-animation: animacao-gradiente 23s ease infinite;
     -o-animation: animacao-gradiente 23s ease infinite;
     animation: animacao-gradiente 23s ease infinite;
-    overflow: hidden;
+    */ overflow: hidden;
     will-change: opacity;
 }
 
@@ -365,17 +365,44 @@ body {
         width: 45%;
     }
     #sobre-mim .conteudo .paragrafo {
-        width: 13em;
+        width: auto;
+        font-size: calc(85% + 0.390625vw) !important;
         margin-bottom: 15% !important;
-        font-size: 0.7em !important;
     }
     .paragrafo:nth-child(odd) {
         transform: translateX(-10%) !important;
         text-align: left;
     }
     .paragrafo:nth-child(even) {
-        transform: translateX(10%) !important;
+        transform: translateX(10%);
         text-align: right;
+    }
+    #sobre-mim .conteudo .paragrafo img {
+        width: 3.5em;
+        height: 3.5em;
+        opacity: 40%;
+    }
+    #mouse-pointer {
+        display: flex;
+        align-self: center;
+        transform: translateX(125%);
+    }
+    #game-controller {
+        display: flex;
+        align-self: center;
+    }
+    #brain-engine {
+        display: flex;
+        align-self: center;
+        transform: translateX(-100%) !important;
+    }
+    #pc {
+        display: flex;
+        align-self: center;
+        transform: translateX(100%)!important;
+    }
+    #conhecimentos .conteudo .conhe-cell i {
+        font-size: calc(275% + 0.390625vw) !important;
     }
 }
 
@@ -404,13 +431,15 @@ body {
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    opacity: 0;
 }
 
 #sobre-mim .conteudo {
     position: relative;
     align-items: stretch;
-    display: inline-block;
+    display: flex;
     flex-direction: column;
+    justify-content: space-between;
     left: 0px;
     margin: 10%;
     width: 50%;
@@ -420,43 +449,64 @@ body {
 }
 
 .paragrafo:nth-child(odd) {
+    border-image: linear-gradient(to right, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0));
+    border-image-slice: 1;
     transform: translateX(-25%);
-    text-align: left;
+    text-align: start;
 }
 
 .paragrafo:nth-child(even) {
+    border-image: linear-gradient(to left, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0));
+    border-image-slice: 1;
     transform: translateX(25%);
-    text-align: right;
+    text-align: end;
+    flex-direction: row-reverse;
 }
 
 #sobre-mim .conteudo .paragrafo {
-    text-transform: uppercase;
-    font-size: 1.3em;
+    border-width: 2.5px;
+    border-style: solid;
+    font-size: calc(130% + 0.390625vw);
     overflow-wrap: break-word;
     display: flex;
-    color: rgb(255, 255, 255);
+    color: white;
     position: relative;
-    border: 3px solid rgb(255, 255, 255);
-    padding: 5px;
-    margin: 5%;
+    padding: 3%;
+    margin: 1%;
 }
 
-#sobre-mim .conteudo .paragrafo .at {
-    z-index: -1;
-    position: absolute;
-    transform: translate(5px, 5px);
-    opacity: 0.3;
-    background: repeating-linear-gradient( 45deg, #ffffff00, #ffffff00 3px, #000000 3px, #000000 10px);
-    width: 100%;
-    height: 100%;
-    transition: 0.3s ease-in-out;
+#sobre-mim .conteudo .paragrafo img {
+    width: 3.5em;
+    height: 3.5em;
+    opacity: 40%;
 }
 
-#sobre-mim .conteudo .paragrafo:hover .at {
-    transform: translate(-5px, -5px);
+#pc {
+    display: flex;
+    align-self: center;
+    transform: translateX(90%);
+}
+
+#mouse-pointer {
+    display: flex;
+    align-self: center;
+    transform: translateX(133%);
+}
+
+#game-controller {
+    display: flex;
+    align-self: center;
+    transform: translateX(100%);
+}
+
+#brain-engine {
+    display: flex;
+    align-self: center;
+    transform: translateX(-150%);
 }
 
 #conhecimentos .conteudo-container {
+    font-family: 'Roboto', sans-serif;
     display: flex;
     position: absolute;
     z-index: 3;
@@ -472,27 +522,42 @@ body {
 }
 
 #conhecimentos .conteudo {
-    position: absolute;
+    width: 80%;
     height: 80%;
-    aspect-ratio: 1/1;
-    color: white;
-    display: grid;
-    transform: rotate(45deg);
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-    grid-template-rows: repeat(auto-fit, minmax(1fr, 80px));
-}
-
-#conhecimentos .conteudo .conhe-container {
-    display: flex;
-    aspect-ratio: 1/1;
-    justify-content: center;
+    justify-items: center;
     align-items: center;
-    border: 1px solid white;
-    margin: 2px;
+    place-items: center stretch;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    grid-column-gap: 0px;
+    grid-row-gap: 10px;
 }
 
-.conhe {
-    transform: rotate(-45deg);
+#conhecimentos .conteudo .conhe-cell {
+    position: relative;
+    justify-items: center;
+    align-items: center;
+    place-items: center;
+}
+
+#conhecimentos .conteudo .conhe-cell i {
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(400% + 0.390625vw);
+    color: white;
+    opacity: 0;
+}
+
+#conhecimentos .conteudo .conhe-cell .fake-load {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    border-bottom: solid 2px #ffffff;
 }
 
 .nome-grande {
@@ -673,5 +738,25 @@ body {
     100% {
         z-index: -10;
         opacity: 0;
+    }
+}
+
+@keyframes fakeConheLoad {
+    0% {
+        width: 0%;
+    }
+    100% {
+        width: 100%;
+    }
+}
+
+@keyframes subirOpacidade {
+    0% {
+        transform: translateY(50%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0%);
+        opacity: 1;
     }
 }

@@ -1,7 +1,8 @@
 var telas;
-window.onbeforeunload = function () {
+//REATIVAR AO COLOCAR SITE AO VIVO
+/*window.onbeforeunload = function () {
     window.scrollTo(0, 0);
-}
+}*/
 window.onload = (() => {
     const pFrase = document.querySelectorAll(".frase-bem-vindo p").item(0);
     pFrase.style.visibility = "hidden";
@@ -94,8 +95,10 @@ window.addEventListener("scroll", function () {
         transition(teini?.id);
     }else if (scr >= (sm?.getClientRects().item(0)?.top + scr - offSet) && scr <= (sm?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         transition(sm?.id);
+        showSM();
     }else if (scr >= (con?.getClientRects().item(0)?.top + scr - offSet) && scr <= (con?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         transition(con?.id);
+        showConhe();
     }else if (scr >= (proj?.getClientRects().item(0)?.top + scr - offSet) && scr <= (proj?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         transition(proj?.id);
     }else if (scr >= (cont?.getClientRects().item(0)?.top + scr - offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr  - offSet)) {
@@ -135,5 +138,43 @@ function transition(nomeTela) {
         }
     }
 
+}
+
+function showSM(){
+  
+    const contContainer = document.getElementById("sobre-mim").getElementsByClassName("conteudo-container")[0];
+
+    setInterval(() => {
+
+    
+        contContainer.style.animation = "subirOpacidade 1.5s 1 normal ease-in-out forwards";
+
+
+        
+    }, 300);
+}
+
+function showConhe(){
+    const conhes = document.getElementsByClassName("conhe-cell");
+    let auxImgs = new Array();
+    for (let a = 0; a < conhes.length; a++) {
+        auxImgs[a]=conhes[a].getElementsByTagName("i")[0];
+
+    }
+    const imgs = auxImgs;
+
+    const fakeLoads = document.getElementsByClassName("fake-load");
+    var sec;
+    setInterval(() => {
+        sec = 0;
+        for (let i = 0; i < fakeLoads.length; i++) {
+            
+            imgs[i].style.animation = "fadeIn 2s 1 normal ease-in-out forwards";
+            imgs[i].style.animationDelay = sec + "s";
+            fakeLoads[i].style.animation = "fakeConheLoad 0.75s 1 normal linear forwards";
+            fakeLoads[i].style.animationDelay = sec + "s";
+            sec += 0.75;
+        }
+    }, 300);
 }
 
