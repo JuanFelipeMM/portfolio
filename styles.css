@@ -570,7 +570,7 @@ body {
     align-self: center;
     align-content: center;
     bottom: 0%;
-    overflow-x: hidden;
+    overflow-x: auto;
     -ms-overflow-style: none;
     /* IE and Edge */
     scrollbar-width: none;
@@ -583,7 +583,7 @@ body {
     flex-flow: row nowrap;
     position: absolute;
     justify-self: center;
-    width: 400%;
+    width: 300%;
     margin-left: 50%;
     margin-right: -50%;
     height: 90%;
@@ -597,24 +597,64 @@ body {
 }
 
 .projeto-atual {
-    width: 350px !important;
-    height: 400px !important;
-    opacity: 1 !important;
+    width: 250px !important;
+    height: 300px !important;
+    opacity: 1;
+    animation: fadeIn 800ms ease-in-out, scaleAni 2000ms ease forwards;
+}
+
+.projeto-atual .descricao-proj {
+    font-size: 1em
 }
 
 #projetos .conteudo .projeto {
     position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     justify-self: center;
-    align-self: center;
-    place-items: center;
     border: 2px solid white;
-    background-color: blue;
+    background-color: transparent;
     flex-shrink: 0;
-    width: 350px;
-    height: 300px;
-    transition: all 600ms ease-in-out;
-    opacity: 0.5;
+    width: 150px;
+    height: 200px;
+    transition: width, height, opacity, background 600ms ease-in-out;
+    /* opacity: 0.5; */
     cursor: pointer;
+}
+
+.imagem-proj {
+    position: relative;
+    object-fit: cover;
+    width: 60%;
+    height: auto;
+    display: block;
+    margin: 5% auto;
+}
+
+.nome-proj {
+    position: relative;
+    text-align: center;
+    color: white;
+    display: block;
+    white-space: nowrap;
+    font-size: calc(100% + 0.390625vw);
+}
+
+.descricao-container {
+    position: relative;
+    width: fit-content;
+    height: 50%;
+    overflow: hidden;
+}
+
+.descricao-proj {
+    position: relative;
+    color: white;
+    display: block;
+    font-size: 0.7em;
+    margin: 5%;
+    transition: font-size 600ms ease-in-out;
 }
 
 #title-container {
@@ -768,6 +808,30 @@ body {
     }
     #conhecimentos .conteudo .conhe-cell i {
         font-size: calc(275% + 0.390625vw) !important;
+    }
+}
+
+@-webkit-keyframes scaleAni {
+    0% {
+        transform: scale(50%);
+    }
+    50% {
+        transform: scale(110%);
+    }
+    100% {
+        transform: scale(100%);
+    }
+}
+
+@keyframes scaleAni {
+    0% {
+        transform: scale(50%);
+    }
+    50% {
+        transform: scale(110%);
+    }
+    100% {
+        transform: scale(100%);
     }
 }
 

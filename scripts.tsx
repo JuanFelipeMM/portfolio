@@ -5,6 +5,7 @@ var telas;
 }*/
 var activeSlideShowProjs=false;
 var intervalProj;
+
 window.onload = (() => {
     activeSlideShowProjs=false
     const pFrase = document.querySelectorAll(".frase-bem-vindo p").item(0);
@@ -107,9 +108,8 @@ window.addEventListener("scroll", function () {
         pauseSlideShowProjs()
     }else if (scr >= (proj?.getClientRects().item(0)?.top + scr - offSet) && scr <= (proj?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         transition(proj?.id);
-        activeSlideShowProjs=true;
-        
-        slideShowProjs();
+        // activeSlideShowProjs=true;
+        // slideShowProjs();
 
     }else if (scr >= (cont?.getClientRects().item(0)?.top + scr - offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         transition(cont?.id);
@@ -221,22 +221,22 @@ function slideShowProjs(){
 }
 
 function showProj(proj){
+    
     const projs = document.getElementsByClassName("projeto");
 
     for(let i=0; i<projs.length;i++){     
         projs[i].classList.remove("projeto-atual");
     }
-   
+    projs[proj].classList.add("projeto-atual");
 
-    projs[proj].scrollIntoView({
-        behavior: "smooth",
-        block: 'nearest',
-        inline: "center"
-      });
-      projs[proj].classList.add("projeto-atual");
-  
+      projs[proj].scrollIntoView({
+          behavior: "auto",
+          block: 'nearest',
+          inline: "center"
+       });
+
+
     
 }
-
 
 
