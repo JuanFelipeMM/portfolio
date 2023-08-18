@@ -611,9 +611,9 @@ body {
     filter: inset blur(5px) !important;
     overflow: auto;
     border-radius: 5px;
-    animation: fadeIn 800ms ease-in-out, scaleAni 2000ms ease forwards;
-    -webkit-animation: fadeIn 800ms ease-in-out, scaleAni 2000ms ease forwards;
-    -moz-animation: fadeIn 800ms ease-in-out, scaleAni 2000ms ease forwards;
+    animation: fadeIn 800ms ease-in-out, scaleAni 1.5s ease forwards;
+    -webkit-animation: fadeIn 800ms ease-in-out, scaleAni 1.5s ease forwards;
+    -moz-animation: fadeIn 800ms ease-in-out, scaleAni 1.5s ease forwards;
     transition: box-shadow 1s ease-in-out !important;
     -webkit-transition: box-shadow 1s ease-in-out !important;
     -o-transition: box-shadow 1s ease-in-out !important;
