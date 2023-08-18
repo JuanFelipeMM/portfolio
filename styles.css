@@ -562,10 +562,11 @@ body {
 #projetos .conteudo-container {
     font-family: 'Roboto', sans-serif;
     display: flex;
+    align-items: center;
     position: absolute;
     z-index: 3;
     width: 100%;
-    height: 70%;
+    height: 83%;
     justify-self: center;
     align-self: center;
     align-content: center;
@@ -597,14 +598,30 @@ body {
 }
 
 .projeto-atual {
-    width: 250px !important;
-    height: 300px !important;
-    opacity: 1;
+    /* width: 250px !important;
+    height: 300px !important; */
+    scale: 2;
+    margin: 80px;
+    opacity: 1 !important;
+    box-shadow: 0px 0.5px 40px 0.5px white inset, 0px 10px 40px 5px white;
+    -webkit-filter: inset blur(0px) !important;
+    -moz-filter: inset blur(0px) !important;
+    -o-filter: inset blur(0px) !important;
+    -ms-filter: inset blur(0px) !important;
+    filter: inset blur(0px) !important;
+    overflow: auto;
+    border-radius: 5px;
     animation: fadeIn 800ms ease-in-out, scaleAni 2000ms ease forwards;
+    -webkit-animation: fadeIn 800ms ease-in-out, scaleAni 2000ms ease forwards;
+    -moz-animation: fadeIn 800ms ease-in-out, scaleAni 2000ms ease forwards;
 }
 
 .projeto-atual .descricao-proj {
-    font-size: 1em
+    /* font-size: 1em */
+}
+
+.projeto-atual .ver-mais-proj {
+    /* left: 78%; */
 }
 
 #projetos .conteudo .projeto {
@@ -614,13 +631,26 @@ body {
     justify-content: center;
     justify-self: center;
     border: 2px solid white;
+    border-radius: 5px;
     background-color: transparent;
+    backdrop-filter: inset blur(1px);
+    -webkit-filter: inset blur(1px);
+    -moz-filter: inset blur(1px);
+    -o-filter: inset blur(1px);
+    -ms-filter: inset blur(1px);
+    filter: inset blur(1px);
     flex-shrink: 0;
     width: 150px;
     height: 200px;
-    transition: width, height, opacity, background 600ms ease-in-out;
-    /* opacity: 0.5; */
+    transition: width, height, opacity, box-shadow, background, transform 600ms ease-in-out, filter 300ms ease-in-out;
+    -webkit-transition: 300ms -webkit-filter, box-shadow, transform 300ms ease-in-out;
+    -o-transition: 300ms -o-filter, box-shadow, transform 300ms ease-in-out;
+    opacity: 0.5;
     cursor: pointer;
+}
+
+.projeto:hover {
+    box-shadow: 0px 0.5px 40px 0.5px white inset, 0px 10px 40px 5px white;
 }
 
 .imagem-proj {
@@ -644,7 +674,7 @@ body {
 .descricao-container {
     position: relative;
     width: fit-content;
-    height: 50%;
+    height: 40%;
     overflow: hidden;
 }
 
@@ -652,9 +682,29 @@ body {
     position: relative;
     color: white;
     display: block;
-    font-size: 0.7em;
+    font-size: 0.55em;
     margin: 5%;
     transition: font-size 600ms ease-in-out;
+}
+
+.ver-mais-proj {
+    position: relative;
+    display: flex;
+    justify-self: right;
+    align-self: flex-end;
+    width: fit-content;
+    height: fit-content;
+    font-size: 0.7em;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    color: white;
+    padding-left: 2%;
+    padding-right: 2%;
+    left: 72%;
+    bottom: 1%;
 }
 
 #title-container {
@@ -812,6 +862,18 @@ body {
 }
 
 @-webkit-keyframes scaleAni {
+    0% {
+        transform: scale(50%);
+    }
+    50% {
+        transform: scale(110%);
+    }
+    100% {
+        transform: scale(100%);
+    }
+}
+
+@-moz-keyframes scaleAni {
     0% {
         transform: scale(50%);
     }
