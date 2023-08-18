@@ -603,25 +603,20 @@ body {
     scale: 2;
     margin: 80px;
     opacity: 1 !important;
-    box-shadow: 0px 0.5px 40px 0.5px white inset, 0px 10px 40px 5px white;
-    -webkit-filter: inset blur(0px) !important;
-    -moz-filter: inset blur(0px) !important;
-    -o-filter: inset blur(0px) !important;
-    -ms-filter: inset blur(0px) !important;
-    filter: inset blur(0px) !important;
+    box-shadow: 0px 10px 40px 5px white;
+    -webkit-filter: inset blur(5px) !important;
+    -moz-filter: inset blur(5px) !important;
+    -o-filter: inset blur(5px) !important;
+    -ms-filter: inset blur(5px) !important;
+    filter: inset blur(5px) !important;
     overflow: auto;
     border-radius: 5px;
     animation: fadeIn 800ms ease-in-out, scaleAni 2000ms ease forwards;
     -webkit-animation: fadeIn 800ms ease-in-out, scaleAni 2000ms ease forwards;
     -moz-animation: fadeIn 800ms ease-in-out, scaleAni 2000ms ease forwards;
-}
-
-.projeto-atual .descricao-proj {
-    /* font-size: 1em */
-}
-
-.projeto-atual .ver-mais-proj {
-    /* left: 78%; */
+    transition: box-shadow 1s ease-in-out !important;
+    -webkit-transition: box-shadow 1s ease-in-out !important;
+    -o-transition: box-shadow 1s ease-in-out !important;
 }
 
 #projetos .conteudo .projeto {
@@ -630,32 +625,54 @@ body {
     align-items: center;
     justify-content: center;
     justify-self: center;
-    border: 2px solid white;
+    border: 1.5px solid white;
     border-radius: 5px;
-    background-color: transparent;
-    backdrop-filter: inset blur(1px);
-    -webkit-filter: inset blur(1px);
-    -moz-filter: inset blur(1px);
-    -o-filter: inset blur(1px);
-    -ms-filter: inset blur(1px);
-    filter: inset blur(1px);
+    background: transparent;
+    backdrop-filter: inset blur(5px);
+    -webkit-filter: inset blur(5px);
+    -moz-filter: inset blur(5px);
+    -o-filter: inset blur(5px);
+    -ms-filter: inset blur(5px);
+    filter: inset blur(5px);
     flex-shrink: 0;
     width: 150px;
     height: 200px;
-    transition: width, height, opacity, box-shadow, background, transform 600ms ease-in-out, filter 300ms ease-in-out;
-    -webkit-transition: 300ms -webkit-filter, box-shadow, transform 300ms ease-in-out;
-    -o-transition: 300ms -o-filter, box-shadow, transform 300ms ease-in-out;
+    transition: width, height, opacity, background, transform 600ms ease-in-out, filter 300ms ease-in-out, box-shadow 200ms ease-in-out !important;
+    -webkit-transition: 300ms -webkit-filter, transform, background 300ms ease-in-out, box-shadow 200ms ease-in-out !important;
+    -o-transition: 300ms -o-filter, transform, background 300ms ease-in-out, box-shadow 200ms ease-in-out !important;
     opacity: 0.5;
-    cursor: pointer;
 }
 
 .projeto:hover {
+    cursor: pointer;
     box-shadow: 0px 0.5px 40px 0.5px white inset, 0px 10px 40px 5px white;
+}
+
+.projeto-atual:hover {
+    cursor: auto;
+    box-shadow: 0px 10px 40px 5px white;
+}
+
+.blocker {
+    width: 150px;
+    height: 200px;
+    top: 0;
+    left: 0;
+    position: absolute;
+    z-index: 20;
+    border-radius: 5px;
+    background: transparent;
+}
+
+.projeto-atual .blocker {
+    display: none;
 }
 
 .imagem-proj {
     position: relative;
     object-fit: cover;
+    border: 0.9px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
     width: 60%;
     height: auto;
     display: block;
@@ -682,7 +699,7 @@ body {
     position: relative;
     color: white;
     display: block;
-    font-size: 0.55em;
+    font-size: 0.42em;
     margin: 5%;
     transition: font-size 600ms ease-in-out;
 }
@@ -696,8 +713,8 @@ body {
     height: fit-content;
     font-size: 0.7em;
     background-color: transparent;
-    border: 2px solid white;
-    border-radius: 5px;
+    border: 1px solid white;
+    border-radius: 3px;
     text-decoration: none;
     cursor: pointer;
     color: white;
@@ -705,6 +722,11 @@ body {
     padding-right: 2%;
     left: 72%;
     bottom: 1%;
+    transition: background 0.5s ease-in-out;
+}
+
+.ver-mais-proj:hover {
+    background: rgba(255, 255, 255, 0.5);
 }
 
 #title-container {
