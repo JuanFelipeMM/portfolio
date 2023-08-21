@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <script src="scripts.tsx"></script>
+    <script src="scripts.js"></script>
     <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="icon" href="images/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css">
@@ -208,10 +208,20 @@
         </div>
         <div class="conteudo-container">
             <div class="conteudo">
-
+                <div id="fullscreen-Modal" class="modal">
+                    <button class="btn esq" onclick="plusDivs(-1)"></button>
+                    <button class="btn dir" onclick="plusDivs(1)"></button>
+                    <span class="close">&times;</span>
+                    <img class="modal-content" id="img01">
+                </div>
                 <div class="projeto" onclick="showProj(0)">
                     <div class="blocker"></div>
-                    <img class="imagem-proj" src="images/TheBatEaterImg.png" alt="The Bat Eater">
+                    <div class="imgs-container">
+                        <button class="btn esq" onclick="plusDivs(-1)"></button>
+                        <button class="btn dir" onclick="plusDivs(1)"></button>
+                        <img class="imagem-proj" src="images/TheBatEaterImg.png" alt="The Bat Eater">
+                        <img class="imagem-proj" src="images/TheBatEaterImgGameplay.png" alt="The Bat Eater GamePlay">
+                    </div>
                     <div class="nome-proj">The Bat Eater</div>
                     <div class="descricao-container">
                         <div class="descricao-proj">Jogo arcade criado para a GameJam de Caracas - Winter Edition #2

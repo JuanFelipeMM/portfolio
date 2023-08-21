@@ -8,7 +8,7 @@ var intervalProj;
 
 window.onload = (() => {
     activeSlideShowProjs=false
-    const pFrase = document.querySelectorAll(".frase-bem-vindo p").item(0);
+    const pFrase : HTMLElement = document.querySelectorAll(".frase-bem-vindo p").item(0) as HTMLElement;
     pFrase.style.visibility = "hidden";
     pFrase.style.opacity = "0";
     document.querySelectorAll('#title-container').forEach(title_container => {
@@ -108,8 +108,8 @@ window.addEventListener("scroll", function () {
         pauseSlideShowProjs()
     }else if (scr >= (proj?.getClientRects().item(0)?.top + scr - offSet) && scr <= (proj?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         transition(proj?.id);
-        activeSlideShowProjs=true;
-        slideShowProjs();
+        // activeSlideShowProjs=true;
+        // slideShowProjs();
 
     }else if (scr >= (cont?.getClientRects().item(0)?.top + scr - offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         transition(cont?.id);
@@ -153,7 +153,7 @@ function transition(nomeTela) {
 
 function showSM(){
   
-    const contContainer = document.getElementById("sobre-mim").getElementsByClassName("conteudo-container")[0];
+    const contContainer : HTMLElement = document.getElementById("sobre-mim").getElementsByClassName("conteudo-container")[0] as HTMLElement;
 
     setInterval(() => {
 
@@ -176,7 +176,7 @@ function showConhe(){
     }
     const imgs = auxImgs;
 
-    const fakeLoads = document.getElementsByClassName("fake-load");
+    const fakeLoads :HTMLCollectionOf<HTMLElement> = document.getElementsByClassName("fake-load") as HTMLCollectionOf<HTMLElement>;
     var sec;
     setInterval(() => {
         sec = 0;
@@ -189,6 +189,62 @@ function showConhe(){
             sec += 0.75;
         }
     }, 300);
+}
+
+var projShowing=0;
+
+function showProj(proj){
+    projShowing=proj;
+    const projs = document.getElementsByClassName("projeto");
+
+    for(let i=0; i<projs.length;i++){     
+        projs[i].classList.remove("projeto-atual");
+    }
+    projs[proj].classList.add("projeto-atual");
+
+    projs[proj].scrollIntoView({
+          behavior: "auto",
+          block: 'nearest',
+          inline: "center"
+    });
+
+    
+    var imgsProj: HTMLCollectionOf<HTMLElement> = projs[proj].getElementsByClassName("imagem-proj") as HTMLCollectionOf<HTMLElement>;
+    var imgProj:HTMLElement  = imgsProj[slideProjImgIndex-1] as HTMLElement;
+
+    var modal = document.getElementById("fullscreen-Modal");
+    var menu : HTMLElement = document.getElementsByClassName("menu")[0] as HTMLElement;
+    imgProj.addEventListener("click",function(){
+        var modalImg = document.getElementById("img01");
+        menu.style.display= "none";
+        modal.style.display = "block";
+        modalImg.src = this.src;
+        disableScroll();
+    }) ;
+
+    var span: HTMLElement = document.getElementsByClassName("close")[0] as HTMLElement;
+   
+    span.onclick = function() {
+        menu.style.display= "flex";
+        modal.style.display = "none";
+        enableScroll();
+    } 
+
+}
+
+function disableScroll() {
+
+    var scrollTop = document.documentElement.scrollTop;
+        
+    var scrollLeft = document.documentElement.scrollLeft;
+   
+    window.onscroll = function() {
+    window.scrollTo(scrollLeft, scrollTop);
+ };
+}
+
+function enableScroll() {
+    window.onscroll = function() {};
 }
 
 function pauseSlideShowProjs(){
@@ -220,23 +276,32 @@ function slideShowProjs(){
     
 }
 
-function showProj(proj){
-    
-    const projs = document.getElementsByClassName("projeto");
 
-    for(let i=0; i<projs.length;i++){     
-        projs[i].classList.remove("projeto-atual");
-    }
-    projs[proj].classList.add("projeto-atual");
+var slideProjImgIndex = 1;
+showDivs(slideProjImgIndex);
 
-      projs[proj].scrollIntoView({
-          behavior: "auto",
-          block: 'nearest',
-          inline: "center"
-       });
-
-
-    
+function plusDivs(n) {
+  showDivs(slideProjImgIndex += n);
 }
+
+function showDivs(n) {
+   
+        var i;
+        var proj : HTMLElement = document.getElementsByClassName("projeto")[projShowing] as HTMLElement;
+        var imgsProj: HTMLCollectionOf<HTMLElement> = proj.getElementsByClassName("imagem-proj") as HTMLCollectionOf<HTMLElement>;
+
+        if (n > imgsProj.length) {slideProjImgIndex = 1}
+        if (n < 1) {slideProjImgIndex = imgsProj.length}
+        for (i = 0; i < imgsProj.length; i++) {
+            imgsProj[i].style.display = "none";  
+        }
+        imgsProj[slideProjImgIndex-1].style.display = "block"; 
+        
+        var modalImg = document.getElementById("img01");
+        modalImg.src = imgsProj[slideProjImgIndex-1].src;
+     
+}
+
+
 
 

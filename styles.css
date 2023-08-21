@@ -598,8 +598,6 @@ body {
 }
 
 .projeto-atual {
-    /* width: 250px !important;
-    height: 300px !important; */
     scale: 2;
     margin: 80px;
     opacity: 1 !important;
@@ -609,7 +607,6 @@ body {
     -o-filter: inset blur(5px) !important;
     -ms-filter: inset blur(5px) !important;
     filter: inset blur(5px) !important;
-    overflow: auto;
     border-radius: 5px;
     animation: fadeIn 800ms ease-in-out, scaleAni 1.5s ease forwards;
     -webkit-animation: fadeIn 800ms ease-in-out, scaleAni 1.5s ease forwards;
@@ -668,15 +665,151 @@ body {
     display: none;
 }
 
+.imgs-container {
+    position: relative;
+    display: flex;
+    object-fit: cover;
+    border: 0.9px solid rgba(255, 255, 255, 0.5);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 5px;
+    width: 60%;
+    height: 30%;
+    margin: 5% auto;
+}
+
+.imgs-container .btn {
+    background-color: transparent;
+    position: absolute;
+    z-index: 15;
+    display: flex;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.imgs-container .btn:hover {
+    opacity: 1;
+}
+
+.imgs-container .dir {
+    left: 100%;
+    align-self: center;
+    border-style: solid;
+    border-width: 10px 0 10px 17.3px;
+    border-color: transparent transparent transparent rgb(255, 255, 255);
+}
+
+.imgs-container .esq {
+    right: 100%;
+    align-self: center;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px 17.3px 10px 0;
+    border-color: transparent rgb(255, 255, 255) transparent transparent;
+}
+
+.imgs-container *:not(:nth-child(-n+3)) {
+    display: none;
+}
+
 .imagem-proj {
     position: relative;
     object-fit: cover;
-    border: 0.9px solid rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
-    width: 60%;
+    width: 100%;
     height: auto;
-    display: block;
     margin: 5% auto;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.modal .btn {
+    background-color: transparent;
+    position: absolute;
+    z-index: 15;
+    display: flex;
+    opacity: 0.6;
+    cursor: pointer;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.modal .btn:hover {
+    opacity: 1;
+}
+
+.modal .dir {
+    left: 90%;
+    top: 40%;
+    width: 0;
+    height: 0;
+    scale: 2;
+    border-style: solid;
+    border-width: 10px 0 10px 17.3px;
+    border-color: transparent transparent transparent rgb(255, 255, 255);
+}
+
+.modal .esq {
+    right: 90%;
+    top: 40%;
+    width: 0;
+    height: 0;
+    scale: 2;
+    border-style: solid;
+    border-width: 10px 17.3px 10px 0;
+    border-color: transparent rgb(255, 255, 255) transparent transparent;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        justify-self: center;
+        align-self: center;
+        width: 100%;
+    }
 }
 
 .nome-proj {
@@ -684,6 +817,7 @@ body {
     text-align: center;
     color: white;
     display: block;
+    z-index: -1;
     white-space: nowrap;
     font-size: calc(100% + 0.390625vw);
 }
@@ -880,6 +1014,14 @@ body {
     }
     #conhecimentos .conteudo .conhe-cell i {
         font-size: calc(275% + 0.390625vw) !important;
+    }
+    .modal .dir {
+        left: 90%;
+        top: 60%;
+    }
+    .modal .esq {
+        right: 90%;
+        top: 60%;
     }
 }
 
