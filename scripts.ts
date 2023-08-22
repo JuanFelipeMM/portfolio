@@ -1,8 +1,8 @@
 var telas;
-//REATIVAR AO COLOCAR SITE AO VIVO
-/*window.onbeforeunload = function () {
+
+window.onbeforeunload = function () {
     window.scrollTo(0, 0);
-}*/
+}
 var activeSlideShowProjs=false;
 var intervalProj;
 
