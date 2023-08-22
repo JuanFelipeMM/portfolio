@@ -617,6 +617,7 @@ body {
 }
 
 #projetos .conteudo .projeto {
+    transform: scale(1);
     position: relative;
     flex-direction: column;
     align-items: center;
@@ -672,14 +673,15 @@ body {
     border: 0.9px solid rgba(255, 255, 255, 0.5);
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 5px;
-    width: 60%;
+    max-width: 60%;
     height: 30%;
     margin: 5% auto;
+    overflow: hidden;
 }
 
 .imgs-container .btn {
     background-color: transparent;
-    position: absolute;
+    position: fixed;
     z-index: 15;
     display: flex;
     opacity: 0.6;
@@ -692,7 +694,7 @@ body {
 }
 
 .imgs-container .dir {
-    left: 100%;
+    left: 80.5%;
     align-self: center;
     border-style: solid;
     border-width: 10px 0 10px 17.3px;
@@ -700,7 +702,7 @@ body {
 }
 
 .imgs-container .esq {
-    right: 100%;
+    right: 80.5%;
     align-self: center;
     width: 0;
     height: 0;
@@ -715,10 +717,12 @@ body {
 
 .imagem-proj {
     position: relative;
-    object-fit: cover;
+    object-fit: scale-down;
     width: 100%;
     height: auto;
-    margin: 5% auto;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
 }
 
 .modal {
@@ -738,8 +742,8 @@ body {
 .modal-content {
     margin: auto;
     display: block;
-    width: 80%;
-    max-width: 700px;
+    max-width: 80vw;
+    height: 80vh;
 }
 
 .modal .btn {
@@ -838,14 +842,23 @@ body {
     transition: font-size 600ms ease-in-out;
 }
 
+.links-acesso {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+}
+
+.links-acesso .ver-mais-proj:only-child {
+    margin-left: auto;
+}
+
 .ver-mais-proj {
     position: relative;
     display: flex;
-    justify-self: right;
-    align-self: flex-end;
+    align-self: center;
     width: fit-content;
     height: fit-content;
-    font-size: 0.7em;
+    font-size: 0.6em;
     background-color: transparent;
     border: 1px solid white;
     border-radius: 3px;
@@ -854,8 +867,8 @@ body {
     color: white;
     padding-left: 2%;
     padding-right: 2%;
-    left: 72%;
-    bottom: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
     transition: background 0.5s ease-in-out;
 }
 

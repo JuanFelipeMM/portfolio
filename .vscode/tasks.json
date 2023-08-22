@@ -1,0 +1,41 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Free ExecutionPolicy",
+			"type": "shell",
+			"command": "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser",
+			"problemMatcher": [],
+			"windows": {
+                "command": "Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser"
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "runOptions": {
+                "runOn": "folderOpen",
+            }
+		},
+        {
+			"label": "Tsc Watch",
+			"type": "shell",
+			"command": "tsc -w",
+			"problemMatcher": [],
+			"windows": {
+                "command": "tsc -w"
+            },
+            "group": "none",
+            "presentation": {
+                "reveal": "always",
+                "panel": "new"
+            },
+            "runOptions": {
+                "runOn": "folderOpen",
+            }
+		},
+		
+		
+	]
+}

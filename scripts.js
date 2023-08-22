@@ -1,3 +1,4 @@
+"use strict";
 var telas;
 //REATIVAR AO COLOCAR SITE AO VIVO
 /*window.onbeforeunload = function () {
@@ -5,21 +6,21 @@ var telas;
 }*/
 var activeSlideShowProjs = false;
 var intervalProj;
-window.onload = (function () {
+window.onload = (() => {
     var _a, _b;
     activeSlideShowProjs = false;
-    var pFrase = document.querySelectorAll(".frase-bem-vindo p").item(0);
+    const pFrase = document.querySelectorAll(".frase-bem-vindo p").item(0);
     pFrase.style.visibility = "hidden";
     pFrase.style.opacity = "0";
-    document.querySelectorAll('#title-container').forEach(function (title_container) {
+    document.querySelectorAll('#title-container').forEach(title_container => {
         title_container.style.width = "0";
         title_container.style.opacity = "1";
     });
     setText("");
-    var frase = document.querySelectorAll('.frase-bem-vindo p span');
+    const frase = document.querySelectorAll('.frase-bem-vindo p span');
     var widthPage = (_a = document.getElementById('tela-inicial')) === null || _a === void 0 ? void 0 : _a.clientWidth;
     var heightPage = (_b = document.getElementById('tela-inicial')) === null || _b === void 0 ? void 0 : _b.clientHeight;
-    for (var i = 0; i < frase.length; i++) {
+    for (let i = 0; i < frase.length; i++) {
         var randW = Math.floor(Math.random() * widthPage - (widthPage * 0.4));
         var randH = Math.floor(Math.random() * heightPage - (heightPage * 0.5));
         frase[i].style.transform = "translate(" + randW + "px, " + randH + "px) rotate(" + (Math.random() * 360) + "deg)";
@@ -27,12 +28,12 @@ window.onload = (function () {
     }
     var sec;
     window.scrollTo(0, 0);
-    setInterval(function () {
+    setInterval(() => {
         sec = 0.4;
         pFrase.style.visibility = "visible";
         pFrase.style.opacity = "1";
         pFrase.style.transition = "opacity 1s ease-in-out";
-        for (var j = 0; j < frase.length; j++) {
+        for (let j = 0; j < frase.length; j++) {
             frase[j].style.transform = "translate(0px,0px)";
             frase[j].style.transition = "transform " + sec + "s ease-in-out, opacity " + sec + "s ease-in-out";
             frase[j].style.opacity = "1";
@@ -40,9 +41,9 @@ window.onload = (function () {
         }
     }, 1000);
     console.log;
-    setInterval(function () {
+    setInterval(() => {
         sec = 0.1;
-        for (var k = 0; k < frase.length; k++) {
+        for (let k = 0; k < frase.length; k++) {
             frase[k].style.animation = "transpAniTexto 1s ease";
             frase[k].style.animationDelay = sec + "s";
             sec += 0.15;
@@ -51,14 +52,14 @@ window.onload = (function () {
 });
 function setText(string) {
     if (string === "") {
-        document.querySelectorAll(".frase-bem-vindo p span").forEach(function (span) {
+        document.querySelectorAll(".frase-bem-vindo p span").forEach(span => {
             string += span.innerHTML.toString();
         });
     }
-    var text = document.querySelectorAll(".frase-bem-vindo p")[0];
+    let text = document.querySelectorAll(".frase-bem-vindo p")[0];
     string.split("");
     text.innerHTML = "";
-    for (var i = 0; i < string.length; i++) {
+    for (let i = 0; i < string.length; i++) {
         if (string[i] === " ") {
             text.innerHTML += "&nbsp";
         }
@@ -69,11 +70,11 @@ function setText(string) {
 }
 window.addEventListener("scroll", function () {
     var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l;
-    var teini = document.getElementById('tela-inicial');
-    var sm = document.getElementById('sobre-mim');
-    var con = document.getElementById('conhecimentos');
-    var proj = document.getElementById('projetos');
-    var cont = document.getElementById('contato');
+    const teini = document.getElementById('tela-inicial');
+    const sm = document.getElementById('sobre-mim');
+    const con = document.getElementById('conhecimentos');
+    const proj = document.getElementById('projetos');
+    const cont = document.getElementById('contato');
     var cliHei = document.documentElement.clientHeight;
     var offSet = cliHei * 0.30;
     var scr = (_a = document.documentElement) === null || _a === void 0 ? void 0 : _a.scrollTop;
@@ -94,8 +95,8 @@ window.addEventListener("scroll", function () {
     }
     else if (scr >= (((_h = proj === null || proj === void 0 ? void 0 : proj.getClientRects().item(0)) === null || _h === void 0 ? void 0 : _h.top) + scr - offSet) && scr <= (((_j = proj === null || proj === void 0 ? void 0 : proj.getClientRects().item(0)) === null || _j === void 0 ? void 0 : _j.bottom) + scr - offSet)) {
         transition(proj === null || proj === void 0 ? void 0 : proj.id);
-        activeSlideShowProjs = true;
-        slideShowProjs();
+        //activeSlideShowProjs=true;
+        //slideShowProjs();
     }
     else if (scr >= (((_k = cont === null || cont === void 0 ? void 0 : cont.getClientRects().item(0)) === null || _k === void 0 ? void 0 : _k.top) + scr - offSet) && scr <= (((_l = cont === null || cont === void 0 ? void 0 : cont.getClientRects().item(0)) === null || _l === void 0 ? void 0 : _l.bottom) + scr - offSet)) {
         transition(cont === null || cont === void 0 ? void 0 : cont.id);
@@ -117,35 +118,35 @@ function transition(nomeTela) {
             grad.style.transition = "opacity 1s linear";
         }
         else {
-            var grad_1 = (_e = telas[i]) === null || _e === void 0 ? void 0 : _e.children[0];
+            let grad = (_e = telas[i]) === null || _e === void 0 ? void 0 : _e.children[0];
             if (((_f = telas[i]) === null || _f === void 0 ? void 0 : _f.id) !== 'tela-inicial') {
-                var titulo_1 = (_g = telas[i]) === null || _g === void 0 ? void 0 : _g.children[1];
-                titulo_1.style.width = "0";
-                titulo_1.style.transition = "width 1s ease";
+                let titulo = (_g = telas[i]) === null || _g === void 0 ? void 0 : _g.children[1];
+                titulo.style.width = "0";
+                titulo.style.transition = "width 1s ease";
             }
-            grad_1.style.opacity = "0";
-            grad_1.style.transition = "opacity 1s linear";
+            grad.style.opacity = "0";
+            grad.style.transition = "opacity 1s linear";
         }
     }
 }
 function showSM() {
-    var contContainer = document.getElementById("sobre-mim").getElementsByClassName("conteudo-container")[0];
-    setInterval(function () {
+    const contContainer = document.getElementById("sobre-mim").getElementsByClassName("conteudo-container")[0];
+    setInterval(() => {
         contContainer.style.animation = "subirOpacidade 1.5s 1 normal ease-in-out forwards";
     }, 300);
 }
 function showConhe() {
-    var conhes = document.getElementsByClassName("conhe-cell");
-    var auxImgs = new Array();
-    for (var a = 0; a < conhes.length; a++) {
+    const conhes = document.getElementsByClassName("conhe-cell");
+    let auxImgs = new Array();
+    for (let a = 0; a < conhes.length; a++) {
         auxImgs[a] = conhes[a].getElementsByTagName("i")[0];
     }
-    var imgs = auxImgs;
-    var fakeLoads = document.getElementsByClassName("fake-load");
+    const imgs = auxImgs;
+    const fakeLoads = document.getElementsByClassName("fake-load");
     var sec;
-    setInterval(function () {
+    setInterval(() => {
         sec = 0;
-        for (var i = 0; i < fakeLoads.length; i++) {
+        for (let i = 0; i < fakeLoads.length; i++) {
             imgs[i].style.animation = "fadeIn 2s 1 normal ease-in-out forwards";
             imgs[i].style.animationDelay = sec + "s";
             fakeLoads[i].style.animation = "fakeConheLoad 0.75s 1 normal linear forwards";
@@ -157,8 +158,8 @@ function showConhe() {
 var projShowing = 0;
 function showProj(proj) {
     projShowing = proj;
-    var projs = document.getElementsByClassName("projeto");
-    for (var i = 0; i < projs.length; i++) {
+    const projs = document.getElementsByClassName("projeto");
+    for (let i = 0; i < projs.length; i++) {
         projs[i].classList.remove("projeto-atual");
     }
     projs[proj].classList.add("projeto-atual");
@@ -202,8 +203,8 @@ function pauseSlideShowProjs() {
 }
 function slideShowProjs() {
     var contSlideProj = 0.0;
-    var projs = document.getElementsByClassName("projeto");
-    for (var i = 0; i < projs.length; i++) {
+    const projs = document.getElementsByClassName("projeto");
+    for (let i = 0; i < projs.length; i++) {
         projs[i].addEventListener("click", pauseSlideShowProjs);
     }
     intervalProj = setInterval(function () {
