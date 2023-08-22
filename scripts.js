@@ -129,9 +129,20 @@ function transition(nomeTela) {
     }
 }
 function showSM() {
-    let contContainer = document.getElementById("sobre-mim").getElementsByClassName("conteudo-container")[0];
+    let contContainer = document.querySelectorAll("#sobre-mim .conteudo-container")[0];
+    let odd = document.querySelectorAll(".paragrafo:nth-child(odd)");
+    let even = document.querySelectorAll(".paragrafo:nth-child(even)");
     setInterval(() => {
-        contContainer.style.animation = "subirOpacidade 0.7s 1 normal ease-in-out forwards";
+        contContainer.style.animation = "fadeIn 1s 1 normal ease-in-out forwards";
+        for (let i = 0; i < odd.length; i++) {
+            console.log("🚀 ~ file: scripts.ts:164 ~ setInterval ~ odd[i]:", odd[i].innerHTML);
+            odd[i].style.animation = "slide-paragrafos-odd 1s 1 normal forwards ease-in";
+            odd[i].style.animationDelay = "0.3s";
+        }
+        for (let i = 0; i < even.length; i++) {
+            even[i].style.animation = "slide-paragrafos-even 1s 1 normal forwards ease-in";
+            even[i].style.animationDelay = "0.3s";
+        }
     }, 300);
 }
 function showConhe() {

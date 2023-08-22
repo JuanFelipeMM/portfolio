@@ -434,14 +434,14 @@ body {
 .paragrafo:nth-child(odd) {
     border-image: linear-gradient(to right, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0));
     border-image-slice: 1;
-    transform: translateX(-25%);
+    transform: translateX(150%);
     text-align: start;
 }
 
 .paragrafo:nth-child(even) {
     border-image: linear-gradient(to left, rgba(255, 255, 255, .7), rgba(255, 255, 255, 0));
     border-image-slice: 1;
-    transform: translateX(25%);
+    transform: translateX(-150%);
     text-align: end;
     flex-direction: row-reverse;
 }
@@ -1314,5 +1314,41 @@ footer a {
     100% {
         transform: translateY(0%);
         opacity: 1;
+    }
+}
+
+@keyframes slide-paragrafos-odd {
+    100% {
+        transform: translateX(-25%);
+    }
+}
+
+@-moz-keyframes slide-paragrafos-odd {
+    100% {
+        transform: translateX(-25%);
+    }
+}
+
+@-webkit-keyframes slide-paragrafos-odd {
+    100% {
+        transform: translateX(-25%);
+    }
+}
+
+@keyframes slide-paragrafos-even {
+    100% {
+        transform: translateX(25%);
+    }
+}
+
+@-moz-keyframes slide-paragrafos-odd {
+    100% {
+        transform: translateX(-25%);
+    }
+}
+
+@-webkit-keyframes slide-paragrafos-odd {
+    100% {
+        transform: translateX(-25%);
     }
 }
