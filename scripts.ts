@@ -108,8 +108,8 @@ window.addEventListener("scroll", function () {
         pauseSlideShowProjs()
     }else if (scr >= (proj?.getClientRects().item(0)?.top + scr - offSet) && scr <= (proj?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         transition(proj?.id);
-        //activeSlideShowProjs=true;
-        //slideShowProjs();
+        activeSlideShowProjs=true;
+        slideShowProjs();
 
     }else if (scr >= (cont?.getClientRects().item(0)?.top + scr - offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         transition(cont?.id);

@@ -918,6 +918,43 @@ body {
     opacity: 1;
 }
 
+#contato .conteudo-container {
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 3;
+    width: 100%;
+    height: 83%;
+    justify-self: center;
+    align-self: center;
+    align-content: center;
+    bottom: 0%;
+}
+
+#contato .conteudo {
+    display: flex;
+    flex-flow: column nowrap;
+    position: absolute;
+    width: 100%;
+    height: 70%;
+}
+
+#contato .infos {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 2em;
+    font-family: 'Roboto', sans-serif;
+}
+
+#contato .infos a {
+    color: rgb(240, 198, 238);
+    text-decoration: none;
+}
+
 #title-container {
     position: relative;
     width: 100%;
@@ -1077,6 +1114,14 @@ body {
     .modal .esq {
         right: 90%;
         top: 60%;
+    }
+    #contato .infos {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        color: white;
+        font-size: 1.5em;
     }
 }
 

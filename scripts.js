@@ -95,8 +95,8 @@ window.addEventListener("scroll", function () {
     }
     else if (scr >= (((_h = proj === null || proj === void 0 ? void 0 : proj.getClientRects().item(0)) === null || _h === void 0 ? void 0 : _h.top) + scr - offSet) && scr <= (((_j = proj === null || proj === void 0 ? void 0 : proj.getClientRects().item(0)) === null || _j === void 0 ? void 0 : _j.bottom) + scr - offSet)) {
         transition(proj === null || proj === void 0 ? void 0 : proj.id);
-        //activeSlideShowProjs=true;
-        //slideShowProjs();
+        activeSlideShowProjs = true;
+        slideShowProjs();
     }
     else if (scr >= (((_k = cont === null || cont === void 0 ? void 0 : cont.getClientRects().item(0)) === null || _k === void 0 ? void 0 : _k.top) + scr - offSet) && scr <= (((_l = cont === null || cont === void 0 ? void 0 : cont.getClientRects().item(0)) === null || _l === void 0 ? void 0 : _l.bottom) + scr - offSet)) {
         transition(cont === null || cont === void 0 ? void 0 : cont.id);
