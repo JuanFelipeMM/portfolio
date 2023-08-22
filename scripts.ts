@@ -1,10 +1,10 @@
-var telas;
+var telas:any;
 
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 }
 var activeSlideShowProjs=false;
-var intervalProj;
+var intervalProj:any;
 
 window.onload = (() => {
     activeSlideShowProjs=false
@@ -45,7 +45,6 @@ window.onload = (() => {
             sec += 0.4;
         }
     }, 1000);
-    console.log
 
 
     setInterval(() => {
@@ -113,6 +112,7 @@ window.addEventListener("scroll", function () {
 
     }else if (scr >= (cont?.getClientRects().item(0)?.top + scr - offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr  - offSet)) {
         transition(cont?.id);
+        showCont();
         pauseSlideShowProjs()
     }
 
@@ -153,15 +153,10 @@ function transition(nomeTela) {
 
 function showSM(){
   
-    const contContainer : HTMLElement = document.getElementById("sobre-mim").getElementsByClassName("conteudo-container")[0] as HTMLElement;
+    let contContainer : HTMLElement = document.getElementById("sobre-mim").getElementsByClassName("conteudo-container")[0] as HTMLElement;
 
     setInterval(() => {
-
-    
-        contContainer.style.animation = "subirOpacidade 1.5s 1 normal ease-in-out forwards";
-
-
-        
+        contContainer.style.animation = "subirOpacidade 0.7s 1 normal ease-in-out forwards";    
     }, 300);
 }
 
@@ -193,7 +188,7 @@ function showConhe(){
 
 var projShowing=0;
 
-function showProj(proj){
+function showProj(proj:number){
     projShowing=proj;
     const projs = document.getElementsByClassName("projeto");
 
@@ -214,14 +209,16 @@ function showProj(proj){
 
     var modal = document.getElementById("fullscreen-Modal");
     var menu : HTMLElement = document.getElementsByClassName("menu")[0] as HTMLElement;
-    imgProj.addEventListener("click",function(){
-        var modalImg = document.getElementById("img01");
-        menu.style.display= "none";
-        modal.style.display = "block";
-        modalImg.src = this.src;
-        disableScroll();
-    }) ;
-
+    
+    if(imgProj!=undefined){
+        imgProj.addEventListener("click",function(){
+            var modalImg = document.getElementById("img01");
+            menu.style.display= "none";
+            modal.style.display = "block";
+            modalImg.src = this.src;
+            disableScroll();
+        }) ;
+    }
     var span: HTMLElement = document.getElementsByClassName("close")[0] as HTMLElement;
    
     span.onclick = function() {
@@ -266,7 +263,7 @@ function slideShowProjs(){
             showProj(contSlideProj);
             contSlideProj+=1;
             if(contSlideProj===projs.length){contSlideProj=0.0;}
-                    console.log("contSlideProj:", contSlideProj);
+                   
         }else{
             contSlideProj=0.0;
             pauseSlideShowProjs(); 
@@ -302,6 +299,14 @@ function showDivs(n) {
      
 }
 
+function showCont(){
+  
+    let contContainer : HTMLElement = document.getElementById("contato").getElementsByClassName("conteudo-container")[0] as HTMLElement;
+
+    setInterval(() => {
+        contContainer.style.animation = "subirOpacidade 0.7s 1 normal ease-in-out forwards";
+    }, 300);
+}
 
 
 
