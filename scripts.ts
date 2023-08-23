@@ -158,9 +158,7 @@ function showSM(){
     let even = document.querySelectorAll(".paragrafo:nth-child(even)");
     setInterval(() => {
         contContainer.style.animation = "fadeIn 1s 1 normal ease-in-out forwards";
-        for(let i=0;i<odd.length;i++){
-            
-            console.log("🚀 ~ file: scripts.ts:164 ~ setInterval ~ odd[i]:", odd[i].innerHTML)
+        for(let i=0;i<odd.length;i++){    
             odd[i].style.animation= "slide-paragrafos-odd 1s 1 normal forwards ease-in";
             odd[i].style.animationDelay= "0.3s"; 
         }
@@ -177,9 +175,7 @@ function showConhe(){
     const conhes = document.getElementsByClassName("conhe-cell");
     const conheContainer = document.querySelector("#conhecimentos .conteudo-container");
     let speed=0.75;
-    conheContainer?.addEventListener("click",()=>{
-        speed=0.2;
-    });
+ 
     let auxImgs = new Array();
     for (let a = 0; a < conhes.length; a++) {
         auxImgs[a]=conhes[a].getElementsByTagName("i")[0];
@@ -188,6 +184,10 @@ function showConhe(){
     const imgs = auxImgs;
 
     const fakeLoads :HTMLCollectionOf<HTMLElement> = document.getElementsByClassName("fake-load") as HTMLCollectionOf<HTMLElement>;
+    
+    conheContainer?.addEventListener("click",()=>{
+        speed=0.2;
+    });
     var sec;
     setInterval(() => {
         sec = 0;
@@ -198,6 +198,7 @@ function showConhe(){
             fakeLoads[i].style.animation = "fakeConheLoad "+speed+"s 1 normal linear forwards";
             fakeLoads[i].style.animationDelay = sec + "s";
             sec += speed;
+  
         }
     }, 300);
 }
@@ -288,7 +289,7 @@ function slideShowProjs(){
           }, 2000);     
     }
 
-      console.log("🚀 ~ file: scripts.ts:289 ~ slideShowProjs ~ contSlideProj:", contSlideProj)
+     
     
 }
 

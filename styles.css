@@ -464,6 +464,11 @@ body {
     opacity: 40%;
 }
 
+.game-mouse-container {
+    display: flex;
+    flex-direction: row;
+}
+
 #pc {
     display: flex;
     align-self: center;
@@ -1110,18 +1115,34 @@ footer a {
         margin: 8%;
         width: 45%;
     }
+    .game-mouse-container {
+        display: flex;
+        flex-direction: column;
+        gap: 10%;
+        margin-left: 10%;
+    }
+    .game-mouse-container #game-controller {
+        transform: translateX(10%);
+    }
+    .game-mouse-container #mouse-pointer {
+        transform: translateX(50%);
+    }
     #sobre-mim .conteudo .paragrafo {
         width: auto;
         font-size: calc(85% + 0.390625vw) !important;
         margin-bottom: 15% !important;
     }
     .paragrafo:nth-child(odd) {
-        transform: translateX(-10%) !important;
+        transform: translateX(10%) !important;
         text-align: left;
     }
     .paragrafo:nth-child(even) {
-        transform: translateX(10%);
+        transform: translateX(-10%);
         text-align: right;
+    }
+    .paragrafo:nth-child(3) {
+        display: flex;
+        flex-direction: row;
     }
     #sobre-mim .conteudo .paragrafo img {
         width: 3.5em;

@@ -135,7 +135,6 @@ function showSM() {
     setInterval(() => {
         contContainer.style.animation = "fadeIn 1s 1 normal ease-in-out forwards";
         for (let i = 0; i < odd.length; i++) {
-            console.log("🚀 ~ file: scripts.ts:164 ~ setInterval ~ odd[i]:", odd[i].innerHTML);
             odd[i].style.animation = "slide-paragrafos-odd 1s 1 normal forwards ease-in";
             odd[i].style.animationDelay = "0.3s";
         }
@@ -149,15 +148,15 @@ function showConhe() {
     const conhes = document.getElementsByClassName("conhe-cell");
     const conheContainer = document.querySelector("#conhecimentos .conteudo-container");
     let speed = 0.75;
-    conheContainer === null || conheContainer === void 0 ? void 0 : conheContainer.addEventListener("click", () => {
-        speed = 0.2;
-    });
     let auxImgs = new Array();
     for (let a = 0; a < conhes.length; a++) {
         auxImgs[a] = conhes[a].getElementsByTagName("i")[0];
     }
     const imgs = auxImgs;
     const fakeLoads = document.getElementsByClassName("fake-load");
+    conheContainer === null || conheContainer === void 0 ? void 0 : conheContainer.addEventListener("click", () => {
+        speed = 0.2;
+    });
     var sec;
     setInterval(() => {
         sec = 0;
@@ -239,7 +238,6 @@ function slideShowProjs() {
             }
         }, 2000);
     }
-    console.log("🚀 ~ file: scripts.ts:289 ~ slideShowProjs ~ contSlideProj:", contSlideProj);
 }
 var slideProjImgIndex = 1;
 showDivs(slideProjImgIndex);
