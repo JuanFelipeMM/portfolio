@@ -101,7 +101,7 @@ window.addEventListener("scroll", function () {
         transition(sm?.id);
         showSM();
         pauseSlideShowProjs()
-    }else if (scr >= (con?.getClientRects().item(0)?.top + scr - offSet) && scr <= (con?.getClientRects().item(0)?.bottom + scr  - offSet)) {
+    }else if (scr >= (con?.getClientRects().item(0)?.top + scr - offSet) && scr <= (con?.getClientRects().item(0)?.bottom + scr -offSet)) {
         transition(con?.id);
         showConhe();
         pauseSlideShowProjs()
@@ -110,7 +110,7 @@ window.addEventListener("scroll", function () {
         activeSlideShowProjs=true;
         slideShowProjs();
 
-    }else if (scr >= (cont?.getClientRects().item(0)?.top + scr - offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr  - offSet)) {
+    }else if (scr >= (cont?.getClientRects().item(0)?.top + scr - offSet) && scr <= (cont?.getClientRects().item(0)?.bottom + scr - offSet)) {
         transition(cont?.id);
         showCont();
         pauseSlideShowProjs()
@@ -175,6 +175,11 @@ function showSM(){
 
 function showConhe(){
     const conhes = document.getElementsByClassName("conhe-cell");
+    const conheContainer = document.querySelector("#conhecimentos .conteudo-container");
+    let speed=0.75;
+    conheContainer?.addEventListener("click",()=>{
+        speed=0.2;
+    });
     let auxImgs = new Array();
     for (let a = 0; a < conhes.length; a++) {
         auxImgs[a]=conhes[a].getElementsByTagName("i")[0];
@@ -190,9 +195,9 @@ function showConhe(){
             
             imgs[i].style.animation = "fadeIn 2s 1 normal ease-in-out forwards";
             imgs[i].style.animationDelay = sec + "s";
-            fakeLoads[i].style.animation = "fakeConheLoad 0.75s 1 normal linear forwards";
+            fakeLoads[i].style.animation = "fakeConheLoad "+speed+"s 1 normal linear forwards";
             fakeLoads[i].style.animationDelay = sec + "s";
-            sec += 0.75;
+            sec += speed;
         }
     }, 300);
 }
@@ -261,26 +266,29 @@ function pauseSlideShowProjs(){
     activeSlideShowProjs=false;
 }
 
+let contSlideProj=0;
 function slideShowProjs(){
-    var contSlideProj=0.0;
+
     const projs = document.getElementsByClassName("projeto");
     for(let i=0; i<projs.length;i++){
         projs[i].addEventListener("click", pauseSlideShowProjs);
     }
+    if(intervalProj===undefined){
+        intervalProj = setInterval(function(){ 
+            
+            if(activeSlideShowProjs===true){  
+                showProj(contSlideProj);
+                contSlideProj+=1;
+                if(contSlideProj===projs.length){contSlideProj=0;}
+                       
+            }else{
+                pauseSlideShowProjs(); 
+                contSlideProj=0;
+                }
+          }, 2000);     
+    }
 
-    intervalProj = setInterval(function(){ 
-        
-        if(activeSlideShowProjs!==false){  
-            showProj(contSlideProj);
-            contSlideProj+=1;
-            if(contSlideProj===projs.length){contSlideProj=0.0;}
-                   
-        }else{
-            contSlideProj=0.0;
-            pauseSlideShowProjs(); 
-            }
-      }, 2000);     
-        
+      console.log("🚀 ~ file: scripts.ts:289 ~ slideShowProjs ~ contSlideProj:", contSlideProj)
     
 }
 

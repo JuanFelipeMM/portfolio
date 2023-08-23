@@ -147,6 +147,11 @@ function showSM() {
 }
 function showConhe() {
     const conhes = document.getElementsByClassName("conhe-cell");
+    const conheContainer = document.querySelector("#conhecimentos .conteudo-container");
+    let speed = 0.75;
+    conheContainer === null || conheContainer === void 0 ? void 0 : conheContainer.addEventListener("click", () => {
+        speed = 0.2;
+    });
     let auxImgs = new Array();
     for (let a = 0; a < conhes.length; a++) {
         auxImgs[a] = conhes[a].getElementsByTagName("i")[0];
@@ -159,9 +164,9 @@ function showConhe() {
         for (let i = 0; i < fakeLoads.length; i++) {
             imgs[i].style.animation = "fadeIn 2s 1 normal ease-in-out forwards";
             imgs[i].style.animationDelay = sec + "s";
-            fakeLoads[i].style.animation = "fakeConheLoad 0.75s 1 normal linear forwards";
+            fakeLoads[i].style.animation = "fakeConheLoad " + speed + "s 1 normal linear forwards";
             fakeLoads[i].style.animationDelay = sec + "s";
-            sec += 0.75;
+            sec += speed;
         }
     }, 300);
 }
@@ -213,25 +218,28 @@ function pauseSlideShowProjs() {
     intervalProj = undefined;
     activeSlideShowProjs = false;
 }
+let contSlideProj = 0;
 function slideShowProjs() {
-    var contSlideProj = 0.0;
     const projs = document.getElementsByClassName("projeto");
     for (let i = 0; i < projs.length; i++) {
         projs[i].addEventListener("click", pauseSlideShowProjs);
     }
-    intervalProj = setInterval(function () {
-        if (activeSlideShowProjs !== false) {
-            showProj(contSlideProj);
-            contSlideProj += 1;
-            if (contSlideProj === projs.length) {
-                contSlideProj = 0.0;
+    if (intervalProj === undefined) {
+        intervalProj = setInterval(function () {
+            if (activeSlideShowProjs === true) {
+                showProj(contSlideProj);
+                contSlideProj += 1;
+                if (contSlideProj === projs.length) {
+                    contSlideProj = 0;
+                }
             }
-        }
-        else {
-            contSlideProj = 0.0;
-            pauseSlideShowProjs();
-        }
-    }, 2000);
+            else {
+                pauseSlideShowProjs();
+                contSlideProj = 0;
+            }
+        }, 2000);
+    }
+    console.log("🚀 ~ file: scripts.ts:289 ~ slideShowProjs ~ contSlideProj:", contSlideProj);
 }
 var slideProjImgIndex = 1;
 showDivs(slideProjImgIndex);
