@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Tilt+Prism&display=swap');
 html {
     scroll-behavior: smooth;
 }
@@ -29,6 +30,16 @@ body {
     position: absolute;
     background-repeat: repeat-y;
     background-size: 100% auto;
+}
+
+#frame {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 -15px 80px 0.01px rgba(0, 0, 0, 0.6);
 }
 
 .menu {
@@ -258,7 +269,7 @@ body {
 
 .frase-bem-vindo {
     justify-content: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Tilt Prism', sans-serif;
     position: relative;
     display: flex;
     vertical-align: middle;
@@ -275,8 +286,8 @@ body {
     text-align: center;
     justify-self: center;
     align-self: center;
-    border-top: 5px solid white;
-    border-bottom: 5px solid white;
+    border-top: 5px double rgb(255, 255, 255, 0.7);
+    border-bottom: 5px double rgb(255, 255, 255, 0.7);
     display: auto;
     height: auto;
     white-space: break-spaces;
@@ -639,7 +650,7 @@ body {
     align-items: center;
     justify-content: center;
     justify-self: center;
-    border: 1.5px solid white;
+    border: 3px double white;
     border-radius: 5px;
     background: transparent;
     backdrop-filter: inset blur(5px);
