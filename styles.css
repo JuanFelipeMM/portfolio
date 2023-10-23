@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Tilt+Prism&display=swap');
+
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Tilt+Prism&display=swap');*/
+
+@font-face {
+    font-family: IndigoOutLine;
+    src: url("./fonts/indigo-outline-font-regular.ttf");
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Roboto:wght@300;400;700&family=Tilt+Prism&display=swap');
 html {
     scroll-behavior: smooth;
 }
@@ -52,7 +60,7 @@ body {
     justify-content: center;
     z-index: 10;
     position: fixed;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
     text-align: center;
     border-bottom: 0.5px solid white;
     box-shadow: 0px -25px 50px -25px white inset, 0px -25px 50px 25px white;
@@ -78,6 +86,134 @@ body {
     border: 0.5px solid white;
     box-shadow: 0px 0px 15px 5px white inset, 0px 0px 10px 5px white;
     font-size: calc(60% + 0.390625vw);
+}
+
+#menuToggle a {
+    text-decoration: none;
+    color: #1E1E23;
+    opacity: 1;
+    font-family: 'Inter', sans-serif;
+    font-size: 1.5em;
+    font-weight: 400;
+    transition: 200ms;
+}
+
+#menuToggle a:hover {
+    opacity: 0.5;
+}
+
+#menuToggle ul {
+    list-style-type: none;
+}
+
+#menuToggle {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 0%;
+    right: 0%;
+    padding: 5%;
+    z-index: 20;
+    text-align: center;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+#menuToggle input {
+    display: flex;
+    position: inherit;
+    width: 50%;
+    height: 50%;
+    position: absolute;
+    cursor: pointer;
+    top: 0%;
+    right: 0%;
+    margin-top: 20%;
+    margin-right: 25%;
+    opacity: 0;
+    z-index: 21;
+}
+
+#menuToggle span {
+    display: none;
+    display: flex;
+    width: 29px;
+    height: 2px;
+    margin-bottom: 5px;
+    position: relative;
+    background: #ffffff;
+    border-radius: 3px;
+    z-index: 21;
+    transform-origin: 5px 0px;
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0), opacity 0.55s ease;
+}
+
+#menuToggle span:first-child {
+    transform-origin: 0% 0%;
+}
+
+#menuToggle span:nth-last-child(2) {
+    transform-origin: 0% 100%;
+}
+
+#menuToggle input:checked~span {
+    opacity: 1;
+    transform: rotate(45deg) translate(-3px, -1px);
+    background: white;
+}
+
+#menuToggle input:checked~span:nth-last-child(3) {
+    opacity: 0;
+    transform: rotate(0deg) scale(0.2, 0.2);
+}
+
+#menuToggle input:checked~span:nth-last-child(2) {
+    transform: rotate(-45deg) translate(0, -1px);
+}
+
+#menuPhone {
+    display: none;
+    position: absolute;
+    flex-direction: column;
+    z-index: 19;
+    width: 50vw;
+    height: 100vh;
+    padding: 10%;
+    top: 0%;
+    margin-top: 0%;
+    right: -5%;
+    text-align: center;
+    justify-content: space-evenly;
+    backdrop-filter: blur(10px);
+    font-family: 'Inter', sans-serif;
+    border-left: 0.5px solid white;
+    -webkit-font-smoothing: antialiased;
+    transform-origin: 0% 0%;
+    transform: translate(100%, 0);
+    transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1.0);
+}
+
+#menuPhone li {
+    transition-delay: 2s;
+}
+
+#menuPhone li a {
+    font-size: medium;
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    border-bottom: 3px;
+    transition: font-size 0.3s ease, box-shadow 0.3s ease;
+    text-align: center;
+}
+
+#menuToggle input:checked~#menuPhone {
+    box-shadow: 0px -2px 50px 2px white;
+}
+
+#menuToggle input:checked~ul {
+    text-align: center;
+    z-index: 20;
+    transform: none;
 }
 
 #tela-inicial #grad {
@@ -269,7 +405,7 @@ body {
 
 .frase-bem-vindo {
     justify-content: center;
-    font-family: 'Tilt Prism', sans-serif;
+    font-family: 'IndigoOutLine', sans-serif;
     position: relative;
     display: flex;
     vertical-align: middle;
@@ -303,7 +439,7 @@ body {
 }
 
 .pre-perfil .nome {
-    font-family: 'Roboto', sans-serif;
+    font-family: "IndigoOutLine";
     color: white;
     font-size: 95%;
     margin: 1%;
@@ -351,7 +487,7 @@ body {
     align-self: center;
     justify-content: center;
     align-content: center;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
     white-space: nowrap;
     text-decoration: none;
     margin: 1%;
@@ -440,7 +576,7 @@ body {
     width: 50%;
     height: 75%;
     padding-inline-start: 0px;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
 }
 
 .paragrafo:nth-child(odd) {
@@ -571,7 +707,7 @@ body {
 }
 
 .nome-grande {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
     display: flex;
     position: absolute;
     writing-mode: vertical-lr;
@@ -1041,7 +1177,7 @@ body {
     position: relative;
     font-size: calc(100% + 0.390625vw);
     white-space: nowrap;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
     color: white;
     text-align: center;
     will-change: width;
@@ -1098,7 +1234,7 @@ body {
 }
 
 footer {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Inter', sans-serif;
     text-align: left;
     padding: 3px;
     background-color: rgba(0, 0, 0, 0.5);
@@ -1111,7 +1247,28 @@ footer a {
     color: white;
 }
 
+@media only screen and (max-width: 767px) {
+    .menu {
+        display: none;
+    }
+    #menuToggle {
+        display: flex;
+    }
+    #menuPhone {
+        display: flex;
+    }
+}
+
 @media only screen and (max-width: 480px) {
+    .menu {
+        display: none;
+    }
+    #menuToggle {
+        display: flex;
+    }
+    #menuPhone {
+        display: flex;
+    }
     .frase-bem-vindo p {
         border-top: 3px solid white !important;
         border-bottom: 3px solid white !important;
