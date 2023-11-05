@@ -71,6 +71,8 @@ function setText(string) {
     for (let i = 0; i < string.length; i++) {
         if (string[i] === " ") {
             text.innerHTML += "&nbsp";
+        }else if(string[i] === "/"){
+            text.innerHTML += "\n";
         } else {
 
             text.innerHTML += "<span>" + string[i] + "</span>";

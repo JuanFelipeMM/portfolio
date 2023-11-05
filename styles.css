@@ -3,6 +3,11 @@
 /*@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Tilt+Prism&display=swap');*/
 
 @font-face {
+    font-family: IndigoRegular;
+    src: url("./fonts/indigo-regular-regular.ttf");
+}
+
+@font-face {
     font-family: IndigoOutLine;
     src: url("./fonts/indigo-outline-font-regular.ttf");
 }
@@ -324,10 +329,10 @@ body {
 .tl-container-conteudo {
     row-gap: 5%;
     display: flex;
-    flex-wrap: wrap;
     justify-content: center;
     place-items: center;
     position: relative;
+    justify-content: space-evenly;
     width: 100vw;
     height: 100vh;
     padding-bottom: 10%;
@@ -338,10 +343,12 @@ body {
     position: relative;
     justify-self: center;
     align-self: center;
-    width: 40%;
+    top: 5%;
+    width: 100%;
     aspect-ratio: 1 / 1;
     animation: fadeIn 2.5s ease-in-out;
     flex-direction: column;
+    gap: 50px
 }
 
 .efeito-foto {
@@ -352,9 +359,9 @@ body {
     align-self: center;
     justify-content: center;
     align-content: center;
-    top: 0%;
-    width: 50%;
-    height: 50%;
+    top: 10%;
+    width: 80%;
+    height: 80%;
 }
 
 .container-fundo {
@@ -370,7 +377,7 @@ body {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: yellowgreen;
+    background-color: #00ff93;
 }
 
 .container-foto {
@@ -404,23 +411,19 @@ body {
 }
 
 .frase-bem-vindo {
-    justify-content: center;
+    justify-content: left;
     font-family: 'IndigoOutLine', sans-serif;
     position: relative;
     display: flex;
     vertical-align: middle;
-    top: 5%;
-    margin: 5%;
     width: 100%;
-    height: 6vh;
+    height: 8vh;
+    padding-left: 1%;
 }
 
 .frase-bem-vindo p {
     position: relative;
-    vertical-align: middle;
-    justify-content: center;
-    text-align: center;
-    justify-self: center;
+    text-align: left;
     align-self: center;
     border-top: 5px double rgb(255, 255, 255, 0.7);
     border-bottom: 5px double rgb(255, 255, 255, 0.7);
@@ -434,41 +437,67 @@ body {
     justify-self: center;
     align-self: center;
     color: white;
-    font-size: 6vh;
-    display: inline-block;
+    font-size: 10vh;
 }
 
 .pre-perfil .nome {
     font-family: "IndigoOutLine";
-    color: white;
+    font-weight: bold;
+    color: #00ff93;
     font-size: 95%;
-    margin: 1%;
     text-align: center;
-    white-space: nowrap;
+    white-space: wrap;
+}
+
+.links {
+    display: flex;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    flex-flow: column;
+    flex-direction: row-reverse;
+    text-align: right;
+    font-family: 'IndigoOutLine', sans-serif;
+    font-weight: bold;
 }
 
 .redes-pre {
     display: flex;
     position: relative;
-    width: 100%;
-    height: 10%;
-    flex-flow: row;
+    width: 10%;
+    height: 100%;
+    flex-flow: column;
     justify-self: center;
     align-self: center;
     justify-content: center;
     align-content: center;
     gap: 5%;
+    font-weight: bold;
+    margin-right: 10%;
 }
 
 .redes-pre a {
+    display: flex;
+    color: #00ff93;
+    font-weight: bold;
+    text-decoration: none;
     position: relative;
+    flex-flow: column;
+    column-count: 2;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: right;
+    align-content: flex-end;
+    gap: 10px;
 }
 
 .redes-pre a img {
+    display: flex;
     opacity: 0.7;
     position: relative;
     width: 100%;
     height: 100%;
+    float: right;
 }
 
 .redes-pre a img:hover {
@@ -477,11 +506,10 @@ body {
 }
 
 .curriculo {
+    color: white;
     position: relative;
-    opacity: 0.7;
     width: 35%;
     height: 7%;
-    text-align: center;
     text-transform: uppercase;
     justify-self: center;
     align-self: center;
@@ -490,51 +518,6 @@ body {
     font-family: 'Inter', sans-serif;
     white-space: nowrap;
     text-decoration: none;
-    margin: 1%;
-}
-
-.curriculo:hover {
-    opacity: 1;
-    transition: opacity 0.3s ease-in-out;
-}
-
-.curriculo svg {
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-}
-
-.curriculo svg text {
-    position: relative;
-    transform: translate(50%, 14%);
-}
-
-.curriculo svg #overlay {
-    position: relative;
-    top: 0px;
-    left: 0px;
-    bottom: 100%;
-    right: 100%;
-    display: inline-block;
-    fill: white;
-    opacity: 1;
-}
-
-.curriculo svg #text {
-    position: relative;
-    font-size: 20px;
-    font-weight: bold;
-}
-
-.curriculo svg #r {
-    fill: white;
-    mask: url(#mask);
-}
-
-.curriculo svg {
-    fill: #000;
-    background-clip: text;
-    -webkit-background-clip: text;
 }
 
 .conteudo-container {
@@ -1257,6 +1240,47 @@ footer a {
     #menuPhone {
         display: flex;
     }
+    .tl-container-conteudo {
+        flex-wrap: wrap;
+        flex-flow: column;
+        row-gap: 1%;
+    }
+    .frase-bem-vindo {
+        height: fit-content;
+        justify-content: center;
+        padding-left: 0%;
+    }
+    .frase-bem-vindo p {
+        white-space: nowrap;
+    }
+    .frase-bem-vindo p span {
+        font-size: 4vh;
+    }
+    .pre-perfil {
+        top: auto;
+        height: fit-content;
+        justify-content: space-around;
+    }
+    .links {
+        height: fit-content;
+        justify-content: space-evenly;
+    }
+    .redes-pre {
+        width: 80%;
+        flex-flow: row;
+        justify-content: center;
+        margin-right: 0;
+        margin: auto 0%;
+        padding: 0%;
+    }
+    .redes-pre a {
+        position: relative;
+        top: 0px;
+        flex-direction: column-reverse;
+        flex-wrap: nowrap;
+        justify-content: space-evenly;
+        align-items: center;
+    }
 }
 
 @media only screen and (max-width: 480px) {
@@ -1269,14 +1293,24 @@ footer a {
     #menuPhone {
         display: flex;
     }
+    .tl-container-conteudo {
+        flex-wrap: wrap;
+    }
+    .frase-bem-vindo {
+        height: fit-content;
+        justify-content: center;
+        padding-left: 0%;
+    }
     .frase-bem-vindo p {
-        border-top: 3px solid white !important;
-        border-bottom: 3px solid white !important;
+        border-top: 3px double white !important;
+        border-bottom: 3px double white !important;
+        text-align: center;
     }
     .frase-bem-vindo p span {
         font-size: 5vw !important;
     }
     .pre-perfil {
+        height: fit-content;
         width: 100%;
     }
     #perfilRosto {
