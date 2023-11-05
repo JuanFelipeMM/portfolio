@@ -228,11 +228,13 @@ function showProj(proj:number){
 
     var modal = document.getElementById("fullscreen-Modal");
     var menu : HTMLElement = document.getElementsByClassName("menu")[0] as HTMLElement;
-    
+    var menuToggle : HTMLElement = document.getElementById("menuToggle") as HTMLElement;
+
     if(imgProj!=undefined){
         imgProj.addEventListener("click",function(){
             var modalImg = document.getElementById("img01");
             menu.style.display= "none";
+            menuToggle.style.display = "none";
             modal.style.display = "block";
             modalImg.src = this.src;
             disableScroll();
@@ -241,7 +243,11 @@ function showProj(proj:number){
     var span: HTMLElement = document.getElementsByClassName("close")[0] as HTMLElement;
    
     span.onclick = function() {
-        menu.style.display= "flex";
+        if(window.innerWidth>767){
+            menu.style.display= "flex";
+        }else{
+            menuToggle.style.display ="flex";
+        }
         modal.style.display = "none";
         enableScroll();
     } 
